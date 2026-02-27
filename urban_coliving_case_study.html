@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" style=" background:#111816;">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Co-Living Platform · Case Study · Moyinoluwa Kemi Idowu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  
+  --ink:        #F0EDE6;
+  --teal:       #1A6B6B;
+  --teal-mid:   #2A8A8A;
+  --teal-lite:  #EBF4F4;
+  --sand:       #161E1C;
+  --sand-dark:  #1E2A26;
+  --warm-grey:  #7A8A84;
+  --rule:       #2A3530;
+  --white:      #111816;
+  --accent:     #B85C38;
+  --ff-serif:   'Cormorant Garamond', Georgia, serif;
+  --ff-sans:    'Outfit', system-ui, sans-serif;
+  --ff-mono:    'DM Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--ff-sans);
+  background: #111816 !important;
+  color: #F0EDE6 !important;
+  font-weight: 300;
+  line-height: 1.6;
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body { background: #111816 !important; color: #F0EDE6 !important; }
+  * {  }
+}
+
+#progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: #C4784A; width: 0%; z-index: 999;
+  transition: width 0.1s linear;
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 6%;
+  background: rgba(17,24,22,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid #2A3530;
+}
+.nav-logo {
+  font-family: var(--ff-mono); font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #C4784A; text-decoration: none;
+}
+.nav-tag {
+  font-family: var(--ff-mono); font-size: 10px;
+  color: #7A8A84; letter-spacing: 0.12em;
+  border: 1px solid #2A3530; padding: 4px 12px; border-radius: 2px;
+}
+
+/* Hero uses accent colour for this case study to differentiate */
+.hero {
+  padding: 130px 6% 70px;
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 300px;
+  gap: 60px; align-items: end;
+}
+.hero-eyebrow {
+  font-family: var(--ff-mono); font-size: 10px;
+  color: #C4784A; letter-spacing: 0.2em;
+  text-transform: uppercase; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.hero-eyebrow::before {
+  content: ''; display: inline-block;
+  width: 28px; height: 1px; background: #C4784A;
+}
+.hero h1 {
+  font-family: var(--ff-serif); font-size: clamp(36px, 5vw, 58px);
+  font-weight: 300; line-height: 1.1; color: #F0EDE6; margin-bottom: 10px;
+}
+.hero h1 em { font-style: italic; color: #C4784A; }
+.hero-sub {
+  font-family: var(--ff-serif); font-size: 16px;
+  font-style: italic; color: #7A8A84; margin-bottom: 6px;
+}
+.hero-tagline {
+  font-family: var(--ff-mono); font-size: 10px;
+  color: #7A8A84; letter-spacing: 0.08em; margin-top: 8px;
+}
+.hero-meta {
+  background: #C4784A; color: #111816;
+  padding: 28px 24px; border-radius: 3px;
+}
+.meta-item { margin-bottom: 16px; }
+.meta-item:last-child { margin-bottom: 0; }
+.meta-label {
+  font-family: var(--ff-mono); font-size: 9px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  opacity: 0.65; margin-bottom: 3px;
+}
+.meta-value { font-size: 13px; font-weight: 400; line-height: 1.4; }
+
+.stats-band {
+  background: #FDF6F1;
+  border-top: 1px solid #E8D4C8; border-bottom: 1px solid #E8D4C8;
+  padding: 40px 6%;
+}
+.stats-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.stat { text-align: center; padding: 0 20px; border-right: 1px solid #E8D4C8; }
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--ff-serif); font-size: 46px;
+  font-weight: 600; color: #C4784A; line-height: 1; margin-bottom: 6px;
+}
+.stat-lbl {
+  font-family: var(--ff-mono); font-size: 9.5px;
+  color: #7A8A84; letter-spacing: 0.1em;
+  text-transform: uppercase; line-height: 1.4;
+}
+
+.content-wrap {
+  max-width: 1100px; margin: 0 auto;
+  padding: 80px 6%;
+  display: grid; grid-template-columns: 660px 1fr;
+  gap: 80px; align-items: start;
+}
+.sidebar { position: sticky; top: 80px; }
+.sidebar-section { margin-bottom: 36px; }
+.sidebar-title {
+  font-family: var(--ff-mono); font-size: 9px;
+  color: #7A8A84; letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #2A3530;
+}
+.sidebar-nav a {
+  display: block; font-size: 12.5px; color: #7A8A84;
+  text-decoration: none; padding: 5px 0 5px 10px;
+  border-left: 2px solid transparent; transition: all 0.2s; font-weight: 400;
+}
+.sidebar-nav a:hover, .sidebar-nav a.active { color: #C4784A; border-left-color: #C4784A; }
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-family: var(--ff-mono); font-size: 9.5px;
+  background: #221A16; color: #C4784A;
+  padding: 4px 10px; border-radius: 2px; border: 1px solid #3A2820;
+}
+
+.article section { margin-bottom: 60px; }
+.section-header {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid #2A3530;
+}
+.section-num { font-family: var(--ff-mono); font-size: 10px; color: #C4784A; letter-spacing: 0.14em; }
+.section-title { font-family: var(--ff-serif); font-size: 22px; color: #F0EDE6; font-weight: 600; }
+
+.article p { font-size: 15px; color: #9AADA8; margin-bottom: 14px; line-height: 1.78; }
+.subsection { margin: 24px 0; }
+.subsection-title {
+  font-size: 12px; font-weight: 500; color: #C4784A;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 10px; font-family: var(--ff-sans);
+}
+
+.bullet-list { list-style: none; margin-bottom: 14px; }
+.bullet-list li {
+  font-size: 14px; color: #9AADA8;
+  padding: 6px 0 6px 20px; position: relative;
+  line-height: 1.6; border-bottom: 1px solid #1E2A26;
+}
+.bullet-list li:last-child { border-bottom: none; }
+.bullet-list li::before {
+  content: '→'; position: absolute; left: 0;
+  color: #C4784A; font-size: 12px; top: 8px;
+}
+.bullet-list li strong { color: #F0EDE6; font-weight: 500; }
+
+/* Persona cards */
+.persona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+.persona-card {
+  background: #111816; border: 1px solid #2A3530;
+  border-top: 3px solid #C4784A;
+  padding: 20px; border-radius: 0 0 3px 3px;
+}
+.persona-name {
+  font-family: var(--ff-serif); font-size: 18px;
+  font-weight: 600; color: #F0EDE6; margin-bottom: 2px;
+}
+.persona-role {
+  font-family: var(--ff-mono); font-size: 9px;
+  color: #C4784A; letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.persona-detail { font-size: 12.5px; color: #9AADA8; line-height: 1.6; margin-bottom: 8px; }
+.persona-need {
+  background: #221A16; padding: 8px 12px;
+  border-radius: 2px; font-size: 12px;
+  color: #C4784A; font-style: italic;
+  border-left: 2px solid #C4784A;
+}
+
+/* Insight cards */
+.insight {
+  background: #111816; border: 1px solid #2A3530;
+  border-left: 3px solid #C4784A; border-radius: 0 3px 3px 0;
+  padding: 18px 20px; margin-bottom: 12px;
+}
+.insight h3 {
+  font-family: var(--ff-serif); font-size: 16px;
+  color: #F0EDE6; margin-bottom: 7px; font-weight: 600;
+}
+.insight p { font-size: 13.5px; margin: 0; }
+
+/* Metrics table */
+.metrics-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 8px; }
+.metrics-table th {
+  background: #C4784A; color: #111816;
+  font-family: var(--ff-mono); font-size: 9px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 10px 14px; text-align: left;
+}
+.metrics-table td { padding: 10px 14px; border-bottom: 1px solid #2A3530; color: #9AADA8; vertical-align: top; line-height: 1.55; }
+.metrics-table tr:nth-child(even) td { background: #1E1814; }
+.metrics-table td:first-child { font-weight: 500; color: #F0EDE6; width: 180px; }
+
+/* Skills table */
+.skills-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+.skills-table th {
+  background: #F0EDE6; color: #111816;
+  font-family: var(--ff-mono); font-size: 9.5px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 10px 14px; text-align: left; font-weight: 500;
+}
+.skills-table td {
+  padding: 10px 14px; border-bottom: 1px solid #2A3530;
+  color: #9AADA8; vertical-align: top; line-height: 1.55;
+}
+.skills-table tr:nth-child(even) td { background: #1A2420; }
+.skills-table td:first-child { font-weight: 500; color: #C4784A; font-size: 12px; white-space: nowrap; width: 175px; }
+
+.pullquote {
+  border-left: 3px solid #C4784A;
+  padding: 16px 20px; margin: 24px 0; background: #201A16;
+}
+.pullquote p {
+  font-family: var(--ff-serif); font-size: 16px;
+  font-style: italic; color: #F0EDE6; line-height: 1.65; margin: 0;
+}
+
+footer {
+  background: #F0EDE6; color: rgba(255,255,255,0.4);
+  text-align: center; padding: 28px 6%;
+  font-family: var(--ff-mono); font-size: 9.5px; letter-spacing: 0.08em;
+}
+footer a { color: #D4886A; text-decoration: none; }
+
+.fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 100px; }
+  .hero-meta { display: none; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .stat { border-bottom: 1px solid #E8D4C8; padding: 20px; }
+  .content-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .sidebar-nav { display: none; }
+  .persona-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Moyinoluwa Kemi Idowu</a>
+  <span class="nav-tag">Case Study</span>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">Product Management · User Research · Capstone</div>
+    <h1>Urban<br><em>Co-Living Platform</em></h1>
+    <p class="hero-sub">Affordable Housing Product Strategy for Young Professionals</p>
+    <p class="hero-tagline">Google PM Capstone · 8 Weeks · Solo PM</p>
+  </div>
+  <div class="hero-meta">
+    <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Product Manager (Capstone)</div></div>
+    <div class="meta-item"><div class="meta-label">Duration</div><div class="meta-value">8 weeks</div></div>
+    <div class="meta-item"><div class="meta-label">Methodology</div><div class="meta-value">Agile / Design Thinking</div></div>
+    <div class="meta-item"><div class="meta-label">Research</div><div class="meta-value">15 user interviews</div></div>
+    <div class="meta-item"><div class="meta-label">Outcome</div><div class="meta-value">73% willingness to adopt</div></div>
+  </div>
+</div>
+
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat fade-in"><div class="stat-num">15</div><div class="stat-lbl">User<br>Interviews</div></div>
+    <div class="stat fade-in" style="transition-delay:.1s"><div class="stat-num">2</div><div class="stat-lbl">Personas<br>Created</div></div>
+    <div class="stat fade-in" style="transition-delay:.2s"><div class="stat-num">73%</div><div class="stat-lbl">Willingness<br>to Adopt</div></div>
+    <div class="stat fade-in" style="transition-delay:.3s"><div class="stat-num">3</div><div class="stat-lbl">Success<br>Metrics Defined</div></div>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <article class="article">
+
+    <section id="overview" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Project Overview</h2>
+      </div>
+      <p>This capstone project from the Google Project Management Certificate programme tasked me with designing a product from the ground up using the full PM toolkit: problem framing, user research, persona development, feature prioritisation, roadmap creation, and success metrics definition.</p>
+      <p>I chose to tackle affordable co-living for young professionals in urban centres, a problem shaped by rising rents, limited housing supply, and the particular challenges of trust and safety that make shared living unappealing even when it is financially necessary. The goal was to design a platform that made co-living genuinely accessible, transparent, and safe, not just cheaper.</p>
+      <p>The project ran across 8 weeks, following Agile sprint cycles, and culminated in a validated product strategy supported by primary user research with 15 participants.</p>
+    </section>
+
+    <section id="problem" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">The Problem</h2>
+      </div>
+      <p>Young professionals in major cities face a housing affordability gap that is too large to bridge through individual renting but too uncomfortable to solve through traditional shared housing. The existing options carry specific, recurring friction points that my research surfaced consistently.</p>
+      <ul class="bullet-list">
+        <li><strong>Trust and safety:</strong> Moving in with strangers without a reliable vetting or verification process is a barrier many potential users cannot get past, particularly for women living alone.</li>
+        <li><strong>Transparency:</strong> Hidden costs, ambiguous house rules, and undisclosed property conditions create disputes after move-in that erode trust in shared platforms.</li>
+        <li><strong>Compatibility matching:</strong> Random or arbitrary roommate pairing leads to lifestyle mismatches, which produce conflict and high turnover, making co-living feel unstable rather than affordable.</li>
+        <li><strong>Lack of community:</strong> Purely transactional housing arrangements do not address the social isolation that young professionals in new cities frequently experience.</li>
+      </ul>
+    </section>
+
+    <section id="research" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">User Research</h2>
+      </div>
+      <p>I conducted 15 in-depth interviews with young professionals aged 22 to 34, targeting people currently renting alone, currently in shared housing, or actively searching for affordable options. Interviews averaged 45 minutes and followed a semi-structured format that allowed participants to take the conversation where their experience led.</p>
+
+      <div class="subsection">
+        <div class="subsection-title">Key Research Findings</div>
+        <ul class="bullet-list">
+          <li>87% of participants cited safety and trust as their primary barrier to co-living, ahead of cost and availability</li>
+          <li>73% said they would adopt a co-living platform if it included verified profiles, transparent pricing, and a compatibility matching feature</li>
+          <li>68% had previously tried a shared housing arrangement that ended due to lifestyle incompatibility rather than financial reasons</li>
+          <li>Community features were valued by 61% of participants, but only as a secondary consideration after safety and transparency were addressed</li>
+          <li>Women participants (9 of 15) placed significantly higher emphasis on safety verification, with several describing past experiences that made unverified platforms feel unusable</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="personas" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">User Personas</h2>
+      </div>
+      <p>Research data consolidated into two primary personas that represented the distinct motivational profiles emerging from the interviews.</p>
+      <div class="persona-grid">
+        <div class="persona-card">
+          <div class="persona-name">Amara, 26</div>
+          <div class="persona-role">The Safety-First Mover</div>
+          <div class="persona-detail">Recently relocated to a new city for work. Renting alone is financially unsustainable, but previous bad experiences with unverified flatmates have made her reluctant to try co-living again. She researches extensively before committing.</div>
+          <div class="persona-need">"I need to know who I'm living with before I say yes to anything."</div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-name">David, 29</div>
+          <div class="persona-role">The Community Builder</div>
+          <div class="persona-detail">Has co-lived before and values the social aspect, but has had two bad experiences with incompatible roommates. Wants a platform that does the compatibility work upfront. Comfortable with the concept, wants better execution.</div>
+          <div class="persona-need">"The idea is right, the matching is just always wrong."</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="strategy" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Product Strategy</h2>
+      </div>
+      <p>Research findings shaped a product strategy organised around three core principles: verify first, match meaningfully, and price transparently. Feature prioritisation used a value vs. effort matrix, with safety and verification features classified as non-negotiable foundations regardless of build cost.</p>
+
+      <div class="subsection">
+        <div class="subsection-title">Priority Features (MVP)</div>
+        <ul class="bullet-list">
+          <li><strong>Verified identity and background checks:</strong> Mandatory for all users before any listing or enquiry. Government ID verification plus optional professional verification.</li>
+          <li><strong>Lifestyle compatibility questionnaire:</strong> Structured pre-match survey covering sleep schedules, cleanliness standards, social preferences, work patterns, and guest policies.</li>
+          <li><strong>Transparent pricing breakdown:</strong> All-inclusive cost display from first interaction: rent, utilities, service fees, and any optional add-ons clearly itemised before any commitment.</li>
+          <li><strong>Secure in-platform messaging:</strong> All pre-move communication on-platform, with message history preserved. No exchange of personal contact details until both parties confirm interest.</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Phase 2 Features (Post-MVP)</div>
+        <ul class="bullet-list">
+          <li>Community events calendar and shared interest groups per property</li>
+          <li>In-app maintenance request and issue tracking</li>
+          <li>Review system for both hosts and co-livers post-stay</li>
+          <li>Flexible short-term lease options (3 to 6 months)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="metrics" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Success Metrics</h2>
+      </div>
+      <p>Three primary success metrics were defined to measure whether the product was actually solving the core problems identified in research, rather than just generating engagement.</p>
+      <table class="metrics-table">
+        <thead><tr><th>Metric</th><th>Definition</th><th>Target (6 months)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Match Retention Rate</td>
+            <td>Percentage of co-living arrangements still active at 3 months, indicating compatibility matching is working</td>
+            <td>70% of matches still active at 3 months</td>
+          </tr>
+          <tr>
+            <td>Safety Satisfaction Score</td>
+            <td>Post-move-in survey score specifically on safety and trust experience, isolating the product's core promise</td>
+            <td>4.2 out of 5.0 average</td>
+          </tr>
+          <tr>
+            <td>Transparent Pricing Disputes</td>
+            <td>Number of post-move-in disputes citing unexpected costs, as a measure of pricing transparency effectiveness</td>
+            <td>Below 5% of completed matches</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="skills" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2 class="section-title">PM Skills Demonstrated</h2>
+      </div>
+      <table class="skills-table">
+        <thead><tr><th>Competency</th><th>How It Showed Up</th></tr></thead>
+        <tbody>
+          <tr><td>User Research</td><td>15 semi-structured interviews with a defined participant profile; findings systematically coded and quantified</td></tr>
+          <tr><td>Persona Development</td><td>Two data-driven personas built from research patterns rather than assumptions; each with a distinct motivational profile</td></tr>
+          <tr><td>Problem Framing</td><td>Research findings reframed the problem from "affordable housing" to "trusted co-living," shifting the entire product strategy</td></tr>
+          <tr><td>Feature Prioritisation</td><td>Value vs. effort matrix used to separate MVP from Phase 2 features; safety features protected as non-negotiable regardless of effort</td></tr>
+          <tr><td>Metrics Definition</td><td>Three outcome-focused success metrics tied directly to the research problems, not vanity metrics</td></tr>
+          <tr><td>Agile Methodology</td><td>8-week project structured as sprint cycles with defined deliverables per sprint and retrospective review between phases</td></tr>
+          <tr><td>Product Roadmapping</td><td>MVP vs. Phase 2 roadmap with rationale for sequencing decisions grounded in user research data</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="reflections" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <h2 class="section-title">Reflections &amp; Learnings</h2>
+      </div>
+      <div class="pullquote">
+        <p>"The research reframed everything. What I thought was a pricing problem turned out to be a trust problem. That single shift changed the entire product strategy."</p>
+      </div>
+      <p>Going into the research phase, I expected affordability to dominate the findings. It came third. Safety and trust were the real barriers, and most participants had mentally accepted the cost of co-living long before they encountered the platform trust problem. That finding reversed the priority order for nearly every feature decision that followed.</p>
+      <p>The discipline of defining success metrics before building the roadmap was the most practically useful part of the process. It forced clarity on what "working" actually meant for this product, and surfaced the fact that traditional engagement metrics like active users and session length would tell you almost nothing about whether the core promise was being kept.</p>
+      <p>If I were taking this to a real product team, the next step would be a prototype usability test focused specifically on the verification and matching flows, where the gap between what users say they want and what they will actually complete in practice is likely to be widest.</p>
+    </section>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">On this page</div>
+      <nav class="sidebar-nav">
+        <a href="#overview">Project Overview</a>
+        <a href="#problem">The Problem</a>
+        <a href="#research">User Research</a>
+        <a href="#personas">Personas</a>
+        <a href="#strategy">Product Strategy</a>
+        <a href="#metrics">Success Metrics</a>
+        <a href="#skills">Skills Demonstrated</a>
+        <a href="#reflections">Reflections</a>
+      </nav>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">PM Competencies</div>
+      <div class="tag-cloud">
+        <span class="tag">User Research</span>
+        <span class="tag">Persona Development</span>
+        <span class="tag">Problem Framing</span>
+        <span class="tag">Feature Prioritisation</span>
+        <span class="tag">Metrics Definition</span>
+        <span class="tag">Agile</span>
+        <span class="tag">Product Roadmapping</span>
+        <span class="tag">Design Thinking</span>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Sector</div>
+      <div class="tag-cloud">
+        <span class="tag">PropTech</span>
+        <span class="tag">Product Management</span>
+        <span class="tag">Consumer Platform</span>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>Moyinoluwa Kemi Idowu &nbsp;·&nbsp; <a href="mailto:kiishiidowu@gmail.com">kiishiidowu@gmail.com</a> &nbsp;·&nbsp; <a href="index.html">Back to Portfolio</a></p>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('progress').style.width =
+    (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+});
+const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+  links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+});
+</script>
+</body>
+</html>

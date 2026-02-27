@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en" style=" background:#111816;">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAID – Roots and Roofs · Case Study · Moyinoluwa Kemi Idowu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & base ─────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    
+    --teal:       #1A6B6B;
+    --teal-mid:   #2A8A8A;
+    --teal-lite:  #EBF4F4;
+    --teal-xlit:  #F5FAF9;
+    --ink:        #F0EDE6;
+    --grey:       #9AADA8;
+    --grey-lite:  #7A8A84;
+    --rule:       #2A3530;
+    --bg:         #111816;
+    --white:      #111816;
+    --sand:       #161E1C;
+    --accent:     #B85C38;
+    --ff-serif:   'Cormorant Garamond', Georgia, serif;
+    --ff-sans:    'Outfit', system-ui, sans-serif;
+    --ff-mono:    'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--ff-sans);
+    background: #111816 !important !important;
+    color: #F0EDE6 !important;
+    
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── Progress bar ─────────────────────────────────────────────────────── */
+  #progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: #4AADA8; width: 0%; z-index: 999;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Nav ──────────────────────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(17,24,22,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #2A3530;
+    padding: 14px 5%;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    color: #4AADA8;
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .nav-tag {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    color: #7A8A84;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid #2A3530;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* ── Hero ─────────────────────────────────────────────────────────────── */
+  .hero {
+    padding: 140px 5% 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 60px;
+    align-items: end;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    color: #5CBDB8;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px; height: 1px;
+    background: #5CBDB8;
+  }
+
+  .hero h1 {
+    font-family: var(--ff-serif);
+    font-weight: 300;
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1.12;
+    color: #F0EDE6;
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    color: #4AADA8;
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: #9AADA8;
+    font-weight: 300;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  .hero-tagline {
+    font-size: 14px;
+    color: #7A8A84;
+    font-family: var(--ff-mono);
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+  }
+
+  .hero-meta {
+    background: #4AADA8;
+    color: #111816;
+    padding: 28px 24px;
+    border-radius: 4px;
+  }
+  .meta-item { margin-bottom: 16px; }
+  .meta-item:last-child { margin-bottom: 0; }
+  .meta-label {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 3px;
+  }
+  .meta-value {
+    font-size: 12.5px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* ── Stats band ───────────────────────────────────────────────────────── */
+  .stats-band {
+    background: #1A2825;
+    border-top: 1px solid #2A3530;
+    border-bottom: 1px solid #2A3530;
+    padding: 40px 5%;
+  }
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid #2A3530;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--ff-serif);
+    font-size: 48px;
+    color: #4AADA8;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-lbl {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    color: #9AADA8;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* ── Main layout ──────────────────────────────────────────────────────── */
+  .content-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 5%;
+    display: grid;
+    grid-template-columns: 680px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* ── Sidebar ──────────────────────────────────────────────────────────── */
+  .sidebar {
+    position: sticky;
+    top: 80px;
+  }
+  .sidebar-section { margin-bottom: 40px; }
+  .sidebar-title {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    color: #7A8A84;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2A3530;
+  }
+  .sidebar-nav a {
+    display: block;
+    font-size: 12.5px;
+    color: #9AADA8;
+    text-decoration: none;
+    padding: 5px 0;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
+    transition: all 0.2s;
+    font-weight: 400;
+  }
+  .sidebar-nav a:hover, .sidebar-nav a.active {
+    color: #4AADA8;
+    border-left-color: #4AADA8;
+  }
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: var(--ff-mono);
+    font-size: 9.5px;
+    background: #1A2825;
+    color: #4AADA8;
+    padding: 4px 10px;
+    border-radius: 2px;
+    border: 1px solid #2A3530;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Article ──────────────────────────────────────────────────────────── */
+  .article section { margin-bottom: 64px; }
+  .article section:last-child { margin-bottom: 0; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #2A3530;
+  }
+  .section-num {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    color: #4AADA8;
+    letter-spacing: 0.12em;
+    opacity: 1;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: var(--ff-serif);
+    font-size: 22px;
+    color: #F0EDE6;
+    font-weight: 700;
+  }
+
+  .article p {
+    font-size: 15px;
+    color: #9AADA8;
+    margin-bottom: 16px;
+    line-height: 1.75;
+  }
+
+  .subsection { margin: 28px 0; }
+  .subsection-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #4AADA8;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    font-family: var(--ff-sans);
+  }
+
+  .bullet-list { list-style: none; margin-bottom: 16px; }
+  .bullet-list li {
+    font-size: 14px;
+    color: #9AADA8;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    line-height: 1.6;
+    border-bottom: 1px solid #161E1C;
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .bullet-list li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: #5CBDB8;
+    font-size: 12px;
+    top: 8px;
+  }
+
+  /* ── Stakeholder grid ─────────────────────────────────────────────────── */
+  .stakeholder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .stakeholder-card {
+    background: #111816;
+    border: 1px solid #2A3530;
+    border-left: 3px solid #4AADA8;
+    padding: 14px 16px;
+    border-radius: 0 3px 3px 0;
+  }
+  .stakeholder-card h4 {
+    font-size: 12px;
+    font-weight: 500;
+    color: #4AADA8;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: var(--ff-mono);
+  }
+  .stakeholder-card p {
+    font-size: 12.5px;
+    color: #9AADA8;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── Contribution blocks ──────────────────────────────────────────────── */
+  .contribution {
+    background: #111816;
+    border: 1px solid #2A3530;
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .contribution::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: #4AADA8;
+  }
+  .contribution h3 {
+    font-family: var(--ff-serif);
+    font-size: 16px;
+    color: #F0EDE6;
+    margin-bottom: 10px;
+  }
+  .contribution p {
+    font-size: 13.5px;
+    margin: 0;
+  }
+
+  /* ── Skills table ─────────────────────────────────────────────────────── */
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .skills-table th {
+    background: #4AADA8;
+    color: #111816;
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+  }
+  .skills-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #2A3530;
+    color: #9AADA8;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .skills-table tr:nth-child(even) td { background: #161E1C; }
+  .skills-table td:first-child {
+    font-weight: 500;
+    color: #4AADA8;
+    font-size: 12px;
+    white-space: nowrap;
+    width: 175px;
+  }
+
+  /* ── Tools pills ──────────────────────────────────────────────────────── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .tool-item {
+    background: #111816;
+    border: 1px solid #2A3530;
+    padding: 10px 14px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #9AADA8;
+    line-height: 1.5;
+  }
+  .tool-item strong {
+    display: block;
+    color: #F0EDE6;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    font-family: var(--ff-mono);
+  }
+
+  /* ── Reflection pullquote ─────────────────────────────────────────────── */
+  .pullquote {
+    border-left: 3px solid #C4784A;
+    padding: 16px 20px;
+    margin: 24px 0;
+    background: #1E1814;
+  }
+  .pullquote p {
+    font-family: var(--ff-serif);
+    font-size: 16px;
+    font-style: italic;
+    color: #F0EDE6;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── Footer ───────────────────────────────────────────────────────────── */
+  footer {
+    background: #F0EDE6;
+    color: #7A8A84;
+    text-align: center;
+    padding: 40px 5%;
+    font-size: 12px;
+    font-family: var(--ff-mono);
+    letter-spacing: 0.06em;
+  }
+  footer a { color: #5CBDB8; text-decoration: none; }
+
+  /* ── Animations ───────────────────────────────────────────────────────── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── Responsive ───────────────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 100px; }
+    .hero-meta { display: none; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat { border-right: none; border-bottom: 1px solid #2A3530; padding-bottom: 24px; }
+    .stat:nth-child(even), .stat:last-child { border: none; }
+    .content-wrap { grid-template-columns: 1fr; gap: 40px; }
+    .sidebar { position: static; }
+    .sidebar-nav { display: none; }
+    .stakeholder-grid { grid-template-columns: 1fr; }
+    .tools-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── FORCE LIGHT MODE — prevents OS dark mode override ─────────────────── */
+  @media (prefers-color-scheme: dark) {
+    html, body, * {
+      background-color: unset !important;
+      color: unset !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Moyinoluwa Kemi Idowu</a>
+  <span class="nav-tag">Case Study</span>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">Project Management · Cultural Heritage · Multi-Partner Programme</div>
+    <h1>PAID – <em>Roots<br>and Roofs</em></h1>
+    <p class="hero-sub">Pan-African Indigenous Skills Development Programme</p>
+    <p class="hero-tagline">African Inspired Interior &amp; Exterior Architecture &nbsp;·&nbsp; Nigeria Pilot 2025–26</p>
+  </div>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <div class="meta-label">My Role</div>
+      <div class="meta-value">Programme Communications Coordinator</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Organisation</div>
+      <div class="meta-value">Goethe-Institut Nigeria</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Funding</div>
+      <div class="meta-value">EU Spaces of Culture · EUNIC Cluster Nigeria</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Engagement</div>
+      <div class="meta-value">Jan 2026 – Feb 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── STATS BAND ─────────────────────────────────────────────────────────── -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat fade-in">
+      <div class="stat-num">6</div>
+      <div class="stat-lbl">Geopolitical<br>Zones</div>
+    </div>
+    <div class="stat fade-in" style="transition-delay:0.1s">
+      <div class="stat-num">15</div>
+      <div class="stat-lbl">Facilitators<br>Managed</div>
+    </div>
+    <div class="stat fade-in" style="transition-delay:0.2s">
+      <div class="stat-num">24</div>
+      <div class="stat-lbl">Programme<br>Participants</div>
+    </div>
+    <div class="stat fade-in" style="transition-delay:0.3s">
+      <div class="stat-num">7</div>
+      <div class="stat-lbl">Stakeholder<br>Orgs &amp; Reps</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MAIN CONTENT ───────────────────────────────────────────────────────── -->
+<div class="content-wrap">
+
+  <!-- Article -->
+  <article class="article">
+
+    <!-- 01 Overview -->
+    <section id="overview" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Programme Overview</h2>
+      </div>
+      <p>PAID – Roots and Roofs was a cultural preservation and skills development initiative funded by the European Union's Spaces of Culture programme and implemented by the EUNIC Cluster Nigeria, a coalition of European cultural institutes and embassies operating in Nigeria. Goethe-Institut Nigeria served as the administrative and financial lead.</p>
+      <p>The <em>Roots and Roofs</em> pilot theme, <strong>African Inspired Interior and Exterior Architecture</strong>, sought to document, preserve, and revitalise indigenous Nigerian architectural heritage at risk of being lost to rapid urbanisation and generational disconnect. The programme selected young Nigerian creative professionals working in pairs (an architect/designer and a photographer/visual storyteller) from each of Nigeria's six geopolitical zones and the FCT.</p>
+      <p>Selected teams were trained by expert facilitators in indigenous architectural techniques, then deployed back to their communities to execute small-scale projects and produce documentary outputs. The selection process ran in two stages: Steering Committee panels evaluated applicants zone by zone to produce a longlist, which a five-member Final Jury reduced to the confirmed cohort. Training spanned virtual workshops (February 9–10, 2026) and onsite sessions in Lagos (from February 16, 2026).</p>
+    </section>
+
+    <!-- 02 Role -->
+    <section id="role" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">My Role &amp; Responsibilities</h2>
+      </div>
+      <p>I joined the PAID programme as Programme Communications Coordinator from January 2026, with a formal contract from January 1, 2026. My remit spanned three interconnected workstreams.</p>
+
+      <div class="subsection">
+        <div class="subsection-title">Facilitator Coordination &amp; Pipeline Management</div>
+        <p>The most operationally demanding aspect of my role. With approximately 15 confirmed facilitators (9 virtual, 6 physical) and a full roster reaching 15, each with unique session requirements and four documentation categories to track. I built and maintained the pipeline that enabled both workshop phases to launch on schedule.</p>
+        <ul class="bullet-list">
+          <li>Onboarded confirmed facilitators by specialism and zone, aligning each to specific workshop sessions</li>
+          <li>Sent individualised briefings confirming session topics, formats, timings, and expectations</li>
+          <li>Built and maintained a tracking system for outstanding submissions, invoices, contracts, addresses, and presentation materials</li>
+          <li>Chased outstanding items systematically, ensuring all facilitators were fully onboarded ahead of workshop dates</li>
+          <li>Coordinated logistics for February 9–10 virtual workshops and February 16 Lagos onsite sessions, both launched on schedule</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Participant &amp; Stakeholder Communications</div>
+        <p>Managing communications across 24 participants, 5 jury members, 12 Steering Committee representatives, and 4 partner organisation leads simultaneously required consistent tone and structured follow-up across a high volume of concurrent threads.</p>
+        <ul class="bullet-list">
+          <li>Coordinated participant onboarding across all six geopolitical zones: collected bios, profile photos, travel details, and project submissions</li>
+          <li>Liaised with the five-member Final Jury on selection timelines and documentation</li>
+          <li>Managed communications with Steering Committee members from all four partner institutions plus IADS, National Troupe, CBAAC, and the EU Delegation</li>
+          <li>Maintained and corrected programme timeline documentation</li>
+          <li>Drafted formal programme correspondence for all stakeholder groups under Goethe-Institut's institutional authority</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Programme Communications &amp; Social Media Strategy</div>
+        <p>I developed the social media strategy and content calendar for @paid_rootsandroofs across Instagram and Facebook, covering the programme lifecycle from open call through the workshop phase.</p>
+        <ul class="bullet-list">
+          <li>Designed a phased content strategy aligned to programme milestones, open call, partner spotlights, jury introductions, workshop coverage</li>
+          <li>Wrote all captions and carousel copy introducing partners, jury members, and the programme's cultural mission</li>
+          <li>Provided live coverage of the February 9–10 virtual workshops and Day 1 of the February 16 onsite Lagos sessions</li>
+          <li>Created accessible public-facing content translating a specialist cultural heritage mission for broader audiences</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 Stakeholders -->
+    <section id="stakeholders" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Stakeholder Landscape</h2>
+      </div>
+      <p>The PAID programme operated across an unusually complex stakeholder environment, a multi-partner European consortium embedded within a pan-Nigerian cultural programme. I worked across 7 partner organisations plus jury, steering committee, and participant groups simultaneously.</p>
+
+      <div class="stakeholder-grid">
+        <div class="stakeholder-card">
+          <h4>Implementing Partners</h4>
+          <p>Goethe-Institut (lead), British Council, Irish Embassy Lagos, Spanish Embassy Nigeria, all under EUNIC Cluster Nigeria</p>
+        </div>
+        <div class="stakeholder-card">
+          <h4>Final Jury (5 members)</h4>
+          <p>2 independent experts + 3 Steering Committee representatives from CBAAC, IADS, and Irish Embassy Lagos</p>
+        </div>
+        <div class="stakeholder-card">
+          <h4>Zone Steering Committees</h4>
+          <p>12 members total (2 per zone), drawn from all 7 partner organisations plus IADS, National Troupe, CBAAC, and the EU Delegation</p>
+        </div>
+        <div class="stakeholder-card">
+          <h4>Programme Delivery</h4>
+          <p>15 facilitators (virtual + physical) and 24 participants across 12 creative teams from Nigeria's 6 geopolitical zones</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Contributions -->
+    <section id="contributions" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Key Contributions &amp; Impact</h2>
+      </div>
+
+      <div class="contribution">
+        <h3>Facilitator Coordination System</h3>
+        <p>The facilitator pipeline was the backbone of programme delivery. Building a structured tracking system for 15 facilitators, each with session-specific requirements and four documentation categories, was the clearest demonstration of project management capability in my work. Both the February 9–10 virtual workshops and the February 16 Lagos onsite sessions launched on schedule with this infrastructure in place.</p>
+      </div>
+
+      <div class="contribution">
+        <h3>Multi-Partner Stakeholder Communications</h3>
+        <p>Operating across four European cultural institutions, 12 committee members, a five-person jury, 24 participants, and 15 facilitators, each with different roles and communication needs, I maintained consistent, professionally calibrated correspondence throughout. All communications were drafted under Goethe-Institut's institutional authority, requiring particular care with tone, accuracy, and the representation of partner interests.</p>
+      </div>
+
+      <div class="contribution">
+        <h3>Social Media Infrastructure</h3>
+        <p>I established the @paid_rootsandroofs social media presence from the ground up: strategy, content calendar, copy, and live workshop coverage. This created a public-facing record of the programme's cultural heritage mission extending its reach beyond the immediate participant and partner community.</p>
+      </div>
+
+      <div class="contribution">
+        <h3>Professional Handover</h3>
+        <p>When the contract concluded on February 17, 2026, I completed a full structured handover covering social media accounts, all facilitator and participant contacts, programme timelines, and outstanding items, under significant time pressure, in the middle of live workshops. Continuity of programme delivery was maintained.</p>
+      </div>
+    </section>
+
+    <!-- 05 Skills -->
+    <section id="skills" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">PM Skills Demonstrated</h2>
+      </div>
+      <table class="skills-table">
+        <thead>
+          <tr><th>Competency</th><th>How It Showed Up</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Stakeholder Management</td><td>Coordinated across 7 partner organisations, 12 committee members, 5 jury members, 15 facilitators, and 24 participants, each with distinct needs and authority levels</td></tr>
+          <tr><td>Project Communications</td><td>Drafted all formal programme correspondence; developed and executed the social media strategy; provided live workshop coverage</td></tr>
+          <tr><td>Delivery Tracking</td><td>Built a facilitator pipeline tracking system across session confirmations, document submissions, and logistics, enabling both workshop phases to launch on schedule</td></tr>
+          <tr><td>Risk &amp; Issue Management</td><td>Identified and corrected timeline errors in circulated documentation; proactively chased outstanding facilitator submissions ahead of deadlines</td></tr>
+          <tr><td>Scope Management</td><td>Balanced three concurrent workstreams (facilitation, participant comms, social media) against a compressed programme timeline</td></tr>
+          <tr><td>Stakeholder Reporting</td><td>Maintained documentation standards appropriate to an EU-funded programme under multi-institution oversight</td></tr>
+          <tr><td>Project Closure</td><td>Delivered comprehensive handover documentation during live workshops under significant time pressure</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 06 Tools -->
+    <section id="tools" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Tools &amp; Methods</h2>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-item"><strong>Stakeholder Tracking</strong>Spreadsheet-based pipeline management for facilitator documentation and participant onboarding</div>
+        <div class="tool-item"><strong>Communications Management</strong>Structured email cadences with systematic follow-up across all stakeholder groups</div>
+        <div class="tool-item"><strong>Social Media</strong>Instagram &amp; Facebook via Meta Business Suite; real-time live event coverage</div>
+        <div class="tool-item"><strong>Content Planning</strong>Phased content calendar mapped to programme milestones</div>
+        <div class="tool-item"><strong>Document Management</strong>Google Workspace (Docs, Drive, Sheets) for programme documentation</div>
+        <div class="tool-item"><strong>Project Closure</strong>Structured handover documentation covering all workstreams and outstanding items</div>
+      </div>
+    </section>
+
+    <!-- 07 Reflections -->
+    <section id="reflections" class="fade-in">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2 class="section-title">Reflections &amp; Learnings</h2>
+      </div>
+
+      <div class="pullquote">
+        <p>"The facilitator coordination workstream was the most operationally demanding I have managed to date, and the clearest evidence, to me, of what project management actually looks like when it matters."</p>
+      </div>
+
+      <p>The PAID programme gave me hands-on experience coordinating a genuinely complex stakeholder environment, operating across four European cultural institutions, multiple Nigerian government and civil society bodies, and a nationally distributed cohort of creative professionals. The multi-partner structure meant every communication carried institutional weight, requiring careful stakeholder management and precise documentation.</p>
+      <p>Building a structured pipeline for 15 facilitators, each with unique session requirements, documentation obligations, and timelines, while managing participant onboarding and live social media across two concurrent workstreams reinforced my core approach to delivery: visibility, proactive follow-up, and clear ownership of every outstanding item.</p>
+      <p>The contract's early conclusion during live workshops was an uncommon circumstance. My response, completing a full, structured handover document the same day, reflects my understanding that professional responsibility to a programme and its participants exists independently of contractual circumstances.</p>
+    </section>
+
+  </article>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">On this page</div>
+      <nav class="sidebar-nav">
+        <a href="#overview">Programme Overview</a>
+        <a href="#role">My Role</a>
+        <a href="#stakeholders">Stakeholder Landscape</a>
+        <a href="#contributions">Key Contributions</a>
+        <a href="#skills">Skills Demonstrated</a>
+        <a href="#tools">Tools &amp; Methods</a>
+        <a href="#reflections">Reflections</a>
+      </nav>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">PM Competencies</div>
+      <div class="tag-cloud">
+        <span class="tag">Stakeholder Management</span>
+        <span class="tag">Delivery Tracking</span>
+        <span class="tag">Project Communications</span>
+        <span class="tag">Risk Management</span>
+        <span class="tag">Scope Management</span>
+        <span class="tag">Project Closure</span>
+        <span class="tag">Content Strategy</span>
+        <span class="tag">Pipeline Management</span>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Sector</div>
+      <div class="tag-cloud">
+        <span class="tag">Cultural Heritage</span>
+        <span class="tag">EU-Funded Programme</span>
+        <span class="tag">Pan-African Initiative</span>
+        <span class="tag">Multi-Partner NGO</span>
+      </div>
+    </div>
+  </aside>
+
+</div><!-- end content-wrap -->
+
+<footer>
+  <p>Moyinoluwa Kemi Idowu &nbsp;·&nbsp; <a href="mailto:kiishiidowu@gmail.com">kiishiidowu@gmail.com</a> &nbsp;·&nbsp; Open to Remote Roles</p>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('progress').style.width = pct + '%';
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Sidebar active link
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.sidebar-nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>
