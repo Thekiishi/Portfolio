@@ -2,247 +2,211 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="color-scheme" content="light only">
+<meta name="color-scheme" content="dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moyinoluwa Kemi Idowu · Project Manager</title>
+<meta name="theme-color" content="#0E1410">
+<title>Moyinoluwa Kemi Idowu &middot; Project Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; color-scheme: light only; }
+html { scroll-behavior: smooth; }
 :root {
-  --ink: #18211F; --teal: #1A6B6B; --teal-mid: #2A8A8A; --teal-lite: #EBF4F4;
-  --sand: #F5F0E8; --sand-dark: #E8E0D0; --warm-grey: #8A8A80; --rule: #D8D0C4;
-  --white: #FDFCFA; --accent: #B85C38;
-  --ff-serif: 'Cormorant Garamond', Georgia, serif;
-  --ff-sans: 'Outfit', system-ui, sans-serif;
-  --ff-mono: 'DM Mono', monospace;
+  --bg: #0E1410; --surface: #141A16; --surface2: #1C2420;
+  --border: #2A3530; --teal: #4AADA8; --teal-dim: #2A6E6A;
+  --teal-glow: rgba(74,173,168,0.12); --cream: #E8E4DC;
+  --muted: #7A9090; --text: #C8C4BC; --accent: #C4905A;
 }
-body { font-family: var(--ff-sans); background: var(--white); color: var(--ink); font-weight: 300; line-height: 1.6; }
-
-/* NAV */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 6%; background: rgba(253,252,250,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid var(--rule); }
-.nav-logo { font-family: var(--ff-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); text-decoration: none; }
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a { font-family: var(--ff-mono); font-size: 10px; color: var(--warm-grey); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+body { font-family: 'Outfit', system-ui, sans-serif; background: var(--bg); color: var(--cream); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--teal-dim); border-radius: 2px; }
+#progress { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--teal), var(--accent)); width: 0%; z-index: 999; transition: width 0.1s linear; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 6%; background: rgba(14,20,16,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); text-decoration: none; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--teal); }
-
-/* HERO */
-.hero { padding: 140px 6% 100px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: start; }
-.hero-eyebrow { font-family: var(--ff-mono); font-size: 10px; color: var(--teal); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
-.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--teal); }
-.hero h1 { font-family: var(--ff-serif); font-size: clamp(42px, 6vw, 76px); font-weight: 300; line-height: 1.05; margin-bottom: 24px; }
+.nav-cta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--bg); background: var(--teal); padding: 8px 18px; border-radius: 2px; text-decoration: none; text-transform: uppercase; transition: opacity 0.2s; }
+.nav-cta:hover { opacity: 0.85; }
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 100px 6% 80px; max-width: 1100px; margin: 0 auto; }
+.hero-tag { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
+.hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--teal); }
+.hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(48px, 7vw, 96px); font-weight: 300; line-height: 1.0; margin-bottom: 28px; }
 .hero h1 em { font-style: italic; color: var(--teal); }
-.hero-sub { font-size: 15px; color: var(--warm-grey); line-height: 1.8; max-width: 480px; margin-bottom: 40px; }
-.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-.btn-primary { font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; background: var(--teal); color: var(--white); padding: 14px 24px; text-decoration: none; transition: background 0.2s; }
-.btn-primary:hover { background: var(--teal-mid); }
-.btn-secondary { font-family: var(--ff-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--rule); color: var(--ink); padding: 14px 24px; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-.btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
-
-/* CREDENTIALS SIDEBAR */
-.credentials { display: flex; flex-direction: column; gap: 1px; margin-top: 8px; }
-.cred-item { background: var(--sand); padding: 18px 20px; border-left: 2px solid transparent; transition: border-color 0.2s; }
-.cred-item:hover { border-color: var(--teal); }
-.cred-label { font-family: var(--ff-mono); font-size: 9px; color: var(--warm-grey); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 4px; }
-.cred-title { font-size: 13px; color: var(--ink); font-weight: 400; line-height: 1.4; }
-.cred-sub { font-size: 12px; color: var(--warm-grey); margin-top: 2px; }
-
-/* STATS */
-.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); max-width: 400px; }
-.stat { background: var(--white); padding: 20px 24px; }
-.stat-num { font-family: var(--ff-serif); font-size: 42px; color: var(--teal); line-height: 1; display: block; }
-.stat-label { font-family: var(--ff-mono); font-size: 9px; color: var(--warm-grey); letter-spacing: 0.14em; text-transform: uppercase; margin-top: 4px; display: block; }
-
-/* SECTION LAYOUT */
-section { padding: 80px 6%; max-width: 1100px; margin: 0 auto; }
-.section-eyebrow { font-family: var(--ff-mono); font-size: 10px; color: var(--teal); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 14px; }
-.section-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--teal); }
-.section-title { font-family: var(--ff-serif); font-size: clamp(28px, 4vw, 44px); font-weight: 300; line-height: 1.15; margin-bottom: 40px; }
-.section-title em { font-style: italic; color: var(--teal); }
-.divider { height: 1px; background: var(--rule); margin: 0 6%; }
-
-/* ABOUT */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.about-prose { font-size: 15px; color: var(--ink); line-height: 1.85; }
-.about-prose p { margin-bottom: 18px; }
-.about-prose strong { font-weight: 500; }
-.skills-col { display: flex; flex-direction: column; gap: 24px; }
-.skill-group h4 { font-family: var(--ff-mono); font-size: 9px; color: var(--teal); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; }
+.hero-desc { font-size: 16px; color: var(--text); max-width: 560px; line-height: 1.8; margin-bottom: 48px; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 60px; }
+.btn-primary { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bg); background: var(--teal); padding: 14px 28px; border-radius: 2px; text-decoration: none; transition: opacity 0.2s; }
+.btn-primary:hover { opacity: 0.85; }
+.btn-secondary { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); border: 1px solid var(--teal-dim); padding: 14px 28px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+.btn-secondary:hover { background: var(--teal-glow); }
+.credentials { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; max-width: 780px; }
+.cred-item { flex: 1; padding: 18px 20px; border-right: 1px solid var(--border); background: var(--surface); }
+.cred-item:last-child { border-right: none; }
+.cred-tag { font-family: 'DM Mono', monospace; font-size: 8px; color: var(--teal); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px; }
+.cred-name { font-size: 12px; color: var(--cream); font-weight: 400; line-height: 1.4; }
+.cred-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.stat-strip { display: flex; gap: 0; border-top: 1px solid var(--border); margin-top: 64px; padding-top: 40px; }
+.stat-item { flex: 1; }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--teal); line-height: 1; display: block; margin-bottom: 4px; }
+.stat-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; }
+section { padding: 100px 6%; max-width: 1100px; margin: 0 auto; }
+.section-header { margin-bottom: 56px; }
+.section-num { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--teal); letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+.section-num::before { content: ''; width: 20px; height: 1px; background: var(--teal); }
+.section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; line-height: 1.1; }
+.section-header h2 em { font-style: italic; color: var(--teal); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.about-text p { font-size: 15px; color: var(--text); line-height: 1.85; margin-bottom: 20px; }
+.about-text strong { color: var(--cream); font-weight: 500; }
+.skill-group { margin-bottom: 28px; }
+.skill-group-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--teal); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag { font-family: var(--ff-mono); font-size: 10px; background: var(--sand); color: var(--ink); padding: 5px 10px; letter-spacing: 0.06em; }
-
-/* PROJECTS */
+.skill-tag { font-size: 12px; color: var(--text); background: var(--surface); border: 1px solid var(--border); padding: 5px 12px; border-radius: 2px; }
 .projects-grid { display: flex; flex-direction: column; gap: 2px; }
-.project-card { display: grid; grid-template-columns: 80px 1fr auto; gap: 32px; align-items: center; padding: 28px 32px; background: var(--sand); text-decoration: none; color: var(--ink); transition: background 0.2s; border-left: 3px solid transparent; }
-.project-card:hover { background: var(--teal-lite); border-color: var(--teal); }
-.card-num { font-family: var(--ff-serif); font-size: 36px; color: var(--rule); line-height: 1; }
-.card-body { display: flex; flex-direction: column; gap: 6px; }
-.card-eyebrow { font-family: var(--ff-mono); font-size: 9px; color: var(--teal); letter-spacing: 0.16em; text-transform: uppercase; }
-.card-title { font-size: 17px; font-weight: 400; color: var(--ink); }
-.card-desc { font-size: 13px; color: var(--warm-grey); line-height: 1.6; max-width: 560px; }
-.card-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.chip { font-family: var(--ff-mono); font-size: 9px; background: var(--white); border: 1px solid var(--rule); color: var(--warm-grey); padding: 4px 8px; letter-spacing: 0.06em; }
-.card-arrow { font-size: 18px; color: var(--teal); opacity: 0; transition: opacity 0.2s; }
-.project-card:hover .card-arrow { opacity: 1; }
-
-/* EXPERIENCE */
-.timeline { display: flex; flex-direction: column; gap: 0; }
-.timeline-item { display: grid; grid-template-columns: 200px 1fr; gap: 40px; padding: 28px 0; border-bottom: 1px solid var(--rule); }
-.timeline-item:last-child { border-bottom: none; }
-.timeline-date { font-family: var(--ff-mono); font-size: 10px; color: var(--warm-grey); letter-spacing: 0.1em; line-height: 1.6; }
-.timeline-badge { display: inline-block; font-family: var(--ff-mono); font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 7px; margin-bottom: 8px; }
-.badge-current { background: var(--teal-lite); color: var(--teal); }
-.badge-contract { background: var(--sand-dark); color: var(--warm-grey); }
-.badge-fulltime { background: #E8F0E8; color: #3A6B3A; }
-.timeline-org { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
-.timeline-role { font-family: var(--ff-mono); font-size: 10px; color: var(--teal); letter-spacing: 0.1em; margin-bottom: 12px; }
-.timeline-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-.timeline-bullets li { font-size: 13px; color: var(--warm-grey); display: flex; gap: 10px; line-height: 1.6; }
-.timeline-bullets li::before { content: '—'; color: var(--rule); flex-shrink: 0; }
-
-/* CONTACT */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.contact-prose { font-size: 15px; color: var(--ink); line-height: 1.8; margin-bottom: 32px; }
+.project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 36px 40px; text-decoration: none; color: inherit; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; transition: border-color 0.2s, background 0.2s; }
+.project-card:hover { border-color: var(--teal-dim); background: var(--surface2); }
+.project-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--teal); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; }
+.project-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.5vw, 30px); font-weight: 300; line-height: 1.2; margin-bottom: 8px; }
+.project-org { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+.project-desc { font-size: 14px; color: var(--text); line-height: 1.7; max-width: 600px; margin-bottom: 20px; }
+.project-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--border); padding: 4px 10px; border-radius: 2px; }
+.project-stats { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; padding-top: 4px; }
+.project-stat-item { text-align: right; }
+.project-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--teal); line-height: 1; display: block; }
+.project-stat-label { font-family: 'DM Mono', monospace; font-size: 8px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+.project-cta { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.14em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.exp-list { display: flex; flex-direction: column; gap: 2px; }
+.exp-item { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 28px 32px; display: grid; grid-template-columns: 130px 1fr; gap: 32px; }
+.exp-date { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; padding-top: 2px; line-height: 1.5; }
+.exp-badge { font-family: 'DM Mono', monospace; font-size: 8px; color: var(--teal); border: 1px solid var(--teal-dim); padding: 3px 8px; border-radius: 2px; letter-spacing: 0.12em; text-transform: uppercase; display: inline-block; margin-bottom: 8px; }
+.exp-role { font-size: 15px; color: var(--cream); font-weight: 400; margin-bottom: 3px; }
+.exp-org { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.exp-bullets li { font-size: 13px; color: var(--text); line-height: 1.6; display: flex; gap: 10px; }
+.exp-bullets li::before { content: '\25b8'; color: var(--teal); font-size: 10px; flex-shrink: 0; margin-top: 3px; }
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+.contact-text p { font-size: 15px; color: var(--text); line-height: 1.85; margin-bottom: 20px; }
 .contact-links { display: flex; flex-direction: column; gap: 12px; }
-.contact-link { display: flex; align-items: center; gap: 16px; font-family: var(--ff-mono); font-size: 11px; color: var(--ink); text-decoration: none; letter-spacing: 0.08em; padding: 14px 18px; border: 1px solid var(--rule); transition: border-color 0.2s, color 0.2s; }
-.contact-link:hover { border-color: var(--teal); color: var(--teal); }
-.contact-link-label { font-size: 9px; color: var(--warm-grey); letter-spacing: 0.16em; text-transform: uppercase; display: block; margin-bottom: 4px; }
-
-/* FOOTER */
-footer { padding: 40px 6%; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
-.footer-name { font-family: var(--ff-mono); font-size: 10px; color: var(--warm-grey); letter-spacing: 0.12em; }
-.footer-status { font-family: var(--ff-mono); font-size: 10px; color: var(--teal); letter-spacing: 0.12em; }
-
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.contact-link { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--cream); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 3px; transition: border-color 0.2s; }
+.contact-link:hover { border-color: var(--teal-dim); }
+.contact-link-label { color: var(--muted); font-size: 9px; letter-spacing: 0.2em; display: block; margin-bottom: 3px; }
+footer { border-top: 1px solid var(--border); padding: 28px 6%; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.footer-name { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+.footer-status { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--teal); letter-spacing: 0.14em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+.footer-status::before { content: ''; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-
+.divider { height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; }
 @media (max-width: 800px) {
-  .hero { grid-template-columns: 1fr; gap: 48px; }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
-  .project-card { grid-template-columns: 48px 1fr; }
-  .card-arrow { display: none; }
+  .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  .project-card { grid-template-columns: 1fr; }
+  .exp-item { grid-template-columns: 1fr; gap: 8px; }
+  .credentials { flex-direction: column; }
+  .nav-links { display: none; }
 }
 </style>
 </head>
 <body>
-
+<div id="progress"></div>
 <nav>
-  <a href="#" class="nav-logo">Moyinoluwa Kemi Idowu</a>
+  <a href="#" class="nav-logo">Moyinoluwa Idowu</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <a href="/cdn-cgi/l/email-protection#bed5d7d7cdd6d7d7dad1c9cbfed9d3dfd7d290ddd1d3" class="nav-cta">Get in Touch</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <div>
-    <div class="hero-eyebrow">Project Manager · Open to Remote Roles</div>
-    <h1>Moyinoluwa <em>Idowu</em></h1>
-    <p class="hero-sub">
-      Delivering complex projects across digital, cultural, and tech environments.
-      Hands-on experience managing multi-stakeholder programmes, cross-functional delivery,
-      and operational coordination across the UK, USA, Ghana, and Nigeria.
-      Currently pursuing an MBA in Operations Management.
-    </p>
-    <div class="hero-btns">
-      <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="mailto:kiishiidowu@gmail.com" class="btn-secondary">Get in Touch</a>
-    </div>
-
-    <div style="margin-top: 48px;">
-      <div class="stats-row">
-        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></div>
-        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Countries Remote</span></div>
-        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Sectors Managed</span></div>
-      </div>
-    </div>
+  <div class="hero-tag">Project Manager</div>
+  <h1>Moyinoluwa <em>Idowu</em></h1>
+  <p class="hero-desc">
+    Delivering complex projects across digital, cultural, and tech environments.
+    Project Manager with hands-on experience managing multi-stakeholder programmes,
+    digital operations, and cross-functional delivery across the UK, USA, Ghana, and Nigeria.
+    Currently pursuing an MBA in Operations Management.
+  </p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn-primary">View Projects</a>
+    <a href="/cdn-cgi/l/email-protection#ee8587879d8687878a81999bae89838f8782c08d8183" class="btn-secondary">Get in Touch</a>
   </div>
-
   <div class="credentials">
     <div class="cred-item">
-      <div class="cred-label">Current</div>
-      <div class="cred-title">MBA — Operations Management</div>
-      <div class="cred-sub">University of Lagos · In Progress</div>
+      <div class="cred-tag">Current</div>
+      <div class="cred-name">MBA &mdash; Operations Management</div>
+      <div class="cred-sub">University of Lagos &middot; In Progress</div>
     </div>
     <div class="cred-item">
-      <div class="cred-label">Certification</div>
-      <div class="cred-title">Google Project Management Certificate</div>
-      <div class="cred-sub">Coursera / Google · 2026</div>
+      <div class="cred-tag">Certification</div>
+      <div class="cred-name">Google Project Management Certificate</div>
+      <div class="cred-sub">Coursera / Google &middot; 2026</div>
     </div>
     <div class="cred-item">
-      <div class="cred-label">Certification</div>
-      <div class="cred-title">ProductDive: Transition into PM</div>
-      <div class="cred-sub">Cohort 7 · 2022</div>
+      <div class="cred-tag">Certification</div>
+      <div class="cred-name">ProductDive: Transition into PM, Cohort 7</div>
+      <div class="cred-sub">ProductDive &middot; 2022</div>
     </div>
     <div class="cred-item">
-      <div class="cred-label">Education</div>
-      <div class="cred-title">BSc Estate Management</div>
-      <div class="cred-sub">University of Lagos · 2021</div>
+      <div class="cred-tag">Education</div>
+      <div class="cred-name">BSc Estate Management</div>
+      <div class="cred-sub">University of Lagos &middot; 2021</div>
     </div>
+  </div>
+  <div class="stat-strip">
+    <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></div>
+    <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">Countries Remote</span></div>
+    <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Sectors Managed</span></div>
   </div>
 </div>
 
 <div class="divider"></div>
 
-<!-- ABOUT -->
 <section id="about">
-  <div class="section-eyebrow">01</div>
-  <h2 class="section-title">About <em>Me</em></h2>
-  <div class="about-grid reveal">
-    <div class="about-prose">
-      <p>
-        I am a project manager with a background spanning <strong>healthcare operations,
-        cultural heritage programmes, digital operations, and faith-based organisations</strong>
-        across four countries.
-      </p>
-      <p>
-        Whether coordinating facilitators across Nigeria's six geopolitical zones for an
-        EU-funded cultural programme, managing a fully remote caregiving team for a US-based
-        residential care facility, or running content operations across three time zones
-        simultaneously, I bring structure, clear communication, and systematic follow-through.
-      </p>
-      <p>
-        I am currently pursuing an <strong>MBA in Operations Management</strong> at the
-        University of Lagos and actively seeking remote Project Manager roles with
-        Canadian and international tech companies.
-      </p>
+  <div class="section-header reveal">
+    <div class="section-num">01</div>
+    <h2>About <em>Me</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I am a Project Manager with a background spanning <strong>healthcare technology, cultural heritage programmes, digital operations, and faith-based organisations</strong> across four countries.</p>
+      <p>Whether coordinating facilitators across Nigeria's six geopolitical zones for an EU-funded cultural programme, managing operations for a US-based residential care facility remotely, or running content operations across three time zones simultaneously, I bring structure, clear communication, and systematic follow-through.</p>
+      <p>I am currently pursuing an <strong>MBA in Operations Management</strong> at the University of Lagos and actively targeting remote Project Manager roles with international employers.</p>
     </div>
-    <div class="skills-col">
+    <div class="reveal">
       <div class="skill-group">
-        <h4>Project Management</h4>
+        <div class="skill-group-label">Project Management</div>
         <div class="skill-tags">
-          <span class="tag">Stakeholder Management</span>
-          <span class="tag">Delivery Tracking</span>
-          <span class="tag">Risk Management</span>
-          <span class="tag">Project Communications</span>
-          <span class="tag">Agile / Scrum</span>
-          <span class="tag">Project Closure</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">Delivery Tracking</span>
+          <span class="skill-tag">Risk Management</span>
+          <span class="skill-tag">Project Communications</span>
+          <span class="skill-tag">Agile / Scrum</span>
+          <span class="skill-tag">Project Closure</span>
         </div>
       </div>
       <div class="skill-group">
-        <h4>Tools</h4>
+        <div class="skill-group-label">Tools</div>
         <div class="skill-tags">
-          <span class="tag">Asana</span>
-          <span class="tag">Trello</span>
-          <span class="tag">Jira</span>
-          <span class="tag">Google Workspace</span>
-          <span class="tag">Slack</span>
-          <span class="tag">Meta Business Suite</span>
+          <span class="skill-tag">Asana</span>
+          <span class="skill-tag">Trello</span>
+          <span class="skill-tag">Jira</span>
+          <span class="skill-tag">Google Workspace</span>
+          <span class="skill-tag">Slack</span>
+          <span class="skill-tag">Meta Business Suite</span>
         </div>
       </div>
       <div class="skill-group">
-        <h4>Domain Experience</h4>
+        <div class="skill-group-label">Domain Experience</div>
         <div class="skill-tags">
-          <span class="tag">Healthcare Tech</span>
-          <span class="tag">Cultural Heritage</span>
-          <span class="tag">Digital Operations</span>
-          <span class="tag">Faith Sector</span>
+          <span class="skill-tag">Healthcare Tech</span>
+          <span class="skill-tag">Cultural Heritage</span>
+          <span class="skill-tag">Digital Operations</span>
+          <span class="skill-tag">Faith Sector</span>
         </div>
       </div>
     </div>
@@ -251,70 +215,73 @@ footer { padding: 40px 6%; border-top: 1px solid var(--rule); display: flex; jus
 
 <div class="divider"></div>
 
-<!-- PROJECTS -->
 <section id="projects">
-  <div class="section-eyebrow">02</div>
-  <h2 class="section-title">Selected <em>Projects</em></h2>
-  <div class="projects-grid reveal">
+  <div class="section-header reveal">
+    <div class="section-num">02</div>
+    <h2>Selected <em>Projects</em></h2>
+  </div>
+  <div class="projects-grid">
 
-    <a href="PAID_case_study_web.html" class="project-card">
-      <div class="card-num">01</div>
-      <div class="card-body">
-        <div class="card-eyebrow">Cultural Heritage Programme · 2026</div>
-        <div class="card-title">PAID – Roots and Roofs</div>
-        <div class="card-desc">
-          Programme Communications Coordinator for a pan-Nigerian EU-funded cultural heritage
-          initiative. Managed facilitator pipeline, participant onboarding, and stakeholder
-          communications across seven partner organisations and six geopolitical zones.
+    <a href="paid_case_study_web.html" class="project-card reveal">
+      <div>
+        <div class="project-eyebrow">Project 01 &middot; Cultural Heritage Programme</div>
+        <div class="project-title">PAID &ndash; Roots and Roofs</div>
+        <div class="project-org">Goethe-Institut Nigeria &middot; EU-Funded</div>
+        <p class="project-desc">Programme Communications Coordinator for a pan-Nigerian cultural heritage initiative. Managed facilitator pipeline, participant onboarding, stakeholder communications, and social media strategy across six geopolitical zones.</p>
+        <div class="project-chips">
+          <span class="chip">Stakeholder Management</span>
+          <span class="chip">Pipeline Coordination</span>
+          <span class="chip">EU Programme</span>
         </div>
-        <div class="card-chips">
-          <span class="chip">15 Facilitators Coordinated</span>
-          <span class="chip">7 Partner Orgs</span>
-          <span class="chip">24 Participants</span>
-          <span class="chip">6 Geopolitical Zones</span>
-        </div>
+        <div class="project-cta">Read Case Study &rarr;</div>
       </div>
-      <div class="card-arrow">→</div>
+      <div class="project-stats">
+        <div class="project-stat-item"><span class="project-stat-num">15</span><span class="project-stat-label">Facilitators Coordinated</span></div>
+        <div class="project-stat-item"><span class="project-stat-num">6</span><span class="project-stat-label">Geopolitical Zones</span></div>
+        <div class="project-stat-item"><span class="project-stat-num">24</span><span class="project-stat-label">Participants Onboarded</span></div>
+        <div class="project-stat-item"><span class="project-stat-num">7</span><span class="project-stat-label">Partner Orgs</span></div>
+      </div>
     </a>
 
-    <a href="platform_migration_case_study.html" class="project-card">
-      <div class="card-num">02</div>
-      <div class="card-body">
-        <div class="card-eyebrow">Enterprise Technology · PM Documentation</div>
-        <div class="card-title">Enterprise Platform Migration</div>
-        <div class="card-desc">
-          Full PM documentation produced for a live interview brief: phased delivery plan,
-          risk register, stakeholder communications framework, and budget structure for a
-          50-client, 90-day migration. Names changed for confidentiality.
-        </div>
-        <div class="card-chips">
+    <a href="platform_migration_case_study.html" class="project-card reveal">
+      <div>
+        <div class="project-eyebrow">Project 02 &middot; Enterprise Technology</div>
+        <div class="project-title">Enterprise Platform Migration</div>
+        <div class="project-org">Interview PM Brief &middot; Confidential Client</div>
+        <p class="project-desc">Full project planning documentation produced for a live interview brief that resulted in a successful hire. Covers phased delivery plan, risk register, stakeholder comms strategy, and budget framework for a 50-client, 90-day migration. Names changed for confidentiality.</p>
+        <div class="project-chips">
           <span class="chip">Risk Register</span>
           <span class="chip">Stakeholder Map</span>
           <span class="chip">Phased Timeline</span>
           <span class="chip">Comms Framework</span>
         </div>
+        <div class="project-cta">Read Case Study &rarr;</div>
       </div>
-      <div class="card-arrow">→</div>
+      <div class="project-stats">
+        <div class="project-stat-item"><span class="project-stat-num">50</span><span class="project-stat-label">Enterprise Clients</span></div>
+        <div class="project-stat-item"><span class="project-stat-num">90</span><span class="project-stat-label">Day Timeline</span></div>
+        <div class="project-stat-item"><span class="project-stat-num">6</span><span class="project-stat-label">Risks Tracked</span></div>
+      </div>
     </a>
 
-    <a href="urban_coliving_case_study.html" class="project-card">
-      <div class="card-num">03</div>
-      <div class="card-body">
-        <div class="card-eyebrow">Product Management Capstone · ProductDive 2022</div>
-        <div class="card-title">Urban Co-Living Platform</div>
-        <div class="card-desc">
-          End-to-end PM capstone: 15 user interviews, two personas, wireframes, user stories,
-          success metrics, and a v1.1 product release note for a co-living platform targeting
-          urban professionals in Lagos.
+    <a href="urban_coliving_case_study.html" class="project-card reveal">
+      <div>
+        <div class="project-eyebrow">Project 03 &middot; Product Management</div>
+        <div class="project-title">Urban Co-Living Platform</div>
+        <div class="project-org">ProductDive: Transition into PM &middot; Cohort 7 Capstone</div>
+        <p class="project-desc">Designed a web-based platform connecting young professionals with affordable co-living spaces. Conducted user research with 15 participants, developed personas, and defined a product roadmap with measurable success metrics.</p>
+        <div class="project-chips">
+          <span class="chip">User Research</span>
+          <span class="chip">Product Strategy</span>
+          <span class="chip">Agile</span>
         </div>
-        <div class="card-chips">
-          <span class="chip">15 User Interviews</span>
-          <span class="chip">2 Personas</span>
-          <span class="chip">73% Willingness to Adopt</span>
-          <span class="chip">3 Success Metrics</span>
-        </div>
+        <div class="project-cta">Read Case Study &rarr;</div>
       </div>
-      <div class="card-arrow">→</div>
+      <div class="project-stats">
+        <div class="project-stat-item"><span class="project-stat-num">15</span><span class="project-stat-label">User Interviews</span></div>
+        <div class="project-stat-item"><span class="project-stat-num">2</span><span class="project-stat-label">Personas Created</span></div>
+        <div class="project-stat-item"><span class="project-stat-num">3</span><span class="project-stat-label">Success Metrics</span></div>
+      </div>
     </a>
 
   </div>
@@ -322,103 +289,78 @@ footer { padding: 40px 6%; border-top: 1px solid var(--rule); display: flex; jus
 
 <div class="divider"></div>
 
-<!-- EXPERIENCE -->
 <section id="experience">
-  <div class="section-eyebrow">03</div>
-  <h2 class="section-title">Work <em>Experience</em></h2>
-  <div class="timeline reveal">
+  <div class="section-header reveal">
+    <div class="section-num">03</div>
+    <h2>Work <em>Experience</em></h2>
+  </div>
+  <div class="exp-list">
 
-    <div class="timeline-item">
-      <div class="timeline-date">
-        <span class="timeline-badge badge-current">Current</span><br>
-        Jul 2024 – Present<br>UK (Remote)
-      </div>
+    <div class="exp-item reveal">
+      <div class="exp-date">Jul 2024 &ndash; Present</div>
       <div>
-        <div class="timeline-org">Harvesters International Christian Centre</div>
-        <div class="timeline-role">Social Media &amp; Paid Advertising Manager</div>
-        <ul class="timeline-bullets">
-          <li>Managed paid social campaigns across Meta platforms against church launch milestones, with £600+ budget driving 200,000+ reach and 600+ event attendees</li>
-          <li>Grew online community from 300 to 3,000+ members across digital platforms</li>
-          <li>Maintained editorial schedules, tracked campaign progress, and documented outcomes across all channels</li>
+        <span class="exp-badge">Current</span>
+        <div class="exp-role">Social Media &amp; Paid Advertising Manager</div>
+        <div class="exp-org">Harvesters International Christian Centre &middot; Kent, UK (Remote)</div>
+        <ul class="exp-bullets">
+          <li>Managing paid advertising campaigns with a &pound;600+ budget, achieving 200,000+ reach and 300+ leads</li>
+          <li>Grew community from 300 to 3,000+ members; coordinated 600+ attendees across events</li>
+          <li>Maintaining editorial schedules, tracking campaign progress, and documenting outcomes</li>
         </ul>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-date">
-        <span class="timeline-badge badge-contract">Contract</span><br>
-        Jan 2026 – Feb 2026<br>Nigeria
-      </div>
+    <div class="exp-item reveal">
+      <div class="exp-date">Jan 2026 &ndash; Feb 2026</div>
       <div>
-        <div class="timeline-org">Goethe-Institut Nigeria · PAID Programme</div>
-        <div class="timeline-role">Programme Communications Coordinator</div>
-        <ul class="timeline-bullets">
+        <span class="exp-badge">Contract</span>
+        <div class="exp-role">Programme Communications Coordinator</div>
+        <div class="exp-org">Goethe-Institut Nigeria &middot; PAID Programme</div>
+        <ul class="exp-bullets">
           <li>Managed facilitator pipeline across virtual and onsite workshops for EU-funded cultural programme</li>
-          <li>Coordinated communications across 7 partner organisations, 5 jury members, and 24 participants</li>
-          <li>Built coordination infrastructure from scratch: tracking systems, contact databases, and email template library</li>
-          <li>Delivered live workshop coverage and executed social media strategy throughout the programme</li>
+          <li>Coordinated communications across 7 partner institutions, 5 jury members, and 24 participants</li>
+          <li>Built coordination infrastructure from scratch: tracking systems, contact databases, and email template libraries</li>
         </ul>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-date">
-        <span class="timeline-badge badge-contract">Contract</span><br>
-        Sep 2025 – Feb 2026<br>Ghana (Remote)
-      </div>
+    <div class="exp-item reveal">
+      <div class="exp-date">Sep 2025 &ndash; Feb 2026</div>
       <div>
-        <div class="timeline-org">LOAF Global Co</div>
-        <div class="timeline-role">Digital Content Manager</div>
-        <ul class="timeline-bullets">
-          <li>Coordinated operational execution of content and website initiatives across a remote team</li>
-          <li>Managed timelines and deliverables, achieving 35% improvement in organic search visibility</li>
-          <li>Supported campaign execution through structured planning and consistent follow-up</li>
+        <span class="exp-badge">Contract</span>
+        <div class="exp-role">Digital Content Manager</div>
+        <div class="exp-org">LOAF Global Co (Tetso Commerce) &middot; Ghana (Remote)</div>
+        <ul class="exp-bullets">
+          <li>Coordinated operational execution of content and website initiatives across 5+ contributors</li>
+          <li>Drove 35% improvement in organic search visibility and 20% increase in website traffic</li>
+          <li>Managed timelines and deliverables across teams; supported campaign execution through structured planning</li>
         </ul>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-date">
-        <span class="timeline-badge badge-contract">Contract</span><br>
-        Sep 2024 – Dec 2024<br>UK (Remote)
-      </div>
+    <div class="exp-item reveal">
+      <div class="exp-date">Sep 2024 &ndash; Dec 2024</div>
       <div>
-        <div class="timeline-org">Reers Technology</div>
-        <div class="timeline-role">Brand Strategist</div>
-        <ul class="timeline-bullets">
+        <span class="exp-badge">Contract</span>
+        <div class="exp-role">Brand Strategist</div>
+        <div class="exp-org">Reers Technology &middot; UK (Remote)</div>
+        <ul class="exp-bullets">
           <li>Sprint-based campaign execution and cross-functional coordination</li>
-          <li>Managed delivery timelines and stakeholder reporting across brand initiatives</li>
+          <li>Managed delivery timelines and stakeholder reporting</li>
         </ul>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-date">
-        <span class="timeline-badge badge-fulltime">Full-time</span><br>
-        Jul 2023 – Jun 2024<br>Maryland, USA (Remote)
-      </div>
+    <div class="exp-item reveal">
+      <div class="exp-date">Jul 2023 &ndash; Jun 2024</div>
       <div>
-        <div class="timeline-org">Bridgestone Healthcare System</div>
-        <div class="timeline-role">Project Manager &amp; Operations Coordinator</div>
-        <ul class="timeline-bullets">
-          <li>Coordinated day-to-day operations for a US-based residential care facility, managing caregiving staff compliance with care and operational standards</li>
-          <li>Monitored operational health, identified process gaps, and coordinated corrective actions before issues escalated</li>
-          <li>Led weekly team check-ins and produced all documentation, status reports, and operational records for a regulated care environment</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">
-        <span class="timeline-badge badge-contract">Contract</span><br>
-        Jan 2025 – Present<br>Nigeria
-      </div>
-      <div>
-        <div class="timeline-org">FitFlex Gym</div>
-        <div class="timeline-role">Operations &amp; Launch Consultant</div>
-        <ul class="timeline-bullets">
-          <li>Managed N1.17M operating budget across launch phase, establishing 3 membership tiers and onboarding 6 staff across 2 shifts</li>
-          <li>Oversaw operational setup resulting in 200+ active members within the first year</li>
+        <span class="exp-badge">Full-time</span>
+        <div class="exp-role">Project Manager &amp; Operations Coordinator</div>
+        <div class="exp-org">Bridgestone Healthcare System &middot; Maryland, USA (Remote)</div>
+        <ul class="exp-bullets">
+          <li>Coordinated day-to-day operations for a US-based residential care facility, managing caregiving staff compliance with care standards remotely from Nigeria</li>
+          <li>Facilitated weekly cross-timezone team check-ins; produced all documentation and status reports</li>
+          <li>Maintained operational health monitoring and documentation to regulated care standards</li>
         </ul>
       </div>
     </div>
@@ -428,53 +370,38 @@ footer { padding: 40px 6%; border-top: 1px solid var(--rule); display: flex; jus
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
 <section id="contact">
-  <div class="section-eyebrow">04</div>
-  <h2 class="section-title">Get in <em>Touch</em></h2>
-  <div class="contact-grid reveal">
-    <div>
-      <p class="contact-prose">
-        I am actively seeking remote Project Manager roles with tech-first and remote-first
-        companies. Available to teams that need structured delivery, clear stakeholder
-        communication, and reliable follow-through across time zones.
-      </p>
+  <div class="section-header reveal">
+    <div class="section-num">04</div>
+    <h2>Get in <em>Touch</em></h2>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-text reveal">
+      <p>I am actively seeking remote Project Manager roles with international employers. If you are hiring or would like to connect, I would love to hear from you.</p>
     </div>
-    <div class="contact-links">
-      <a href="mailto:kiishiidowu@gmail.com" class="contact-link">
-        <div>
-          <span class="contact-link-label">Email</span>
-          kiishiidowu@gmail.com
-        </div>
+    <div class="contact-links reveal">
+      <a href="/cdn-cgi/l/email-protection#cba0a2a2b8a3a2a2afa4bcbe8baca6aaa2a7e5a8a4a6" class="contact-link">
+        <div><span class="contact-link-label">Email</span><span class="__cf_email__" data-cfemail="701b191903181919141f070530171d11191c5e131f1d">[email&#160;protected]</span></div>
       </a>
       <a href="https://www.linkedin.com/in/moyinoluwaidowu/" target="_blank" class="contact-link">
-        <div>
-          <span class="contact-link-label">LinkedIn</span>
-          linkedin.com/in/moyinoluwaidowu
-        </div>
+        <div><span class="contact-link-label">LinkedIn</span>linkedin.com/in/moyinoluwaidowu</div>
       </a>
       <a href="Moyinoluwa_Idowu_CV.pdf" class="contact-link">
-        <div>
-          <span class="contact-link-label">CV</span>
-          Download PDF
-        </div>
+        <div><span class="contact-link-label">CV</span>Download CV (PDF)</div>
       </a>
     </div>
   </div>
 </section>
 
 <footer>
-  <span class="footer-name">Moyinoluwa Kemi Idowu · Project Manager · 2026</span>
+  <span class="footer-name">Moyinoluwa Kemi Idowu &middot; Project Manager &middot; 2026</span>
   <span class="footer-status">Open to Remote Roles</span>
 </footer>
 
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 60);
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.body.scrollHeight - window.innerHeight;
+    document.getElementById('progress').style.width = (scrolled / total * 100) + '%';
+  });
+  const observer = new
