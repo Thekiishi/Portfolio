@@ -119,7 +119,7 @@ footer { border-top: 1px solid var(--border); padding: 28px 6%; max-width: 1100p
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="/cdn-cgi/l/email-protection#bed5d7d7cdd6d7d7dad1c9cbfed9d3dfd7d290ddd1d3" class="nav-cta">Get in Touch</a>
+  <a href="mailto:kiishiidowu@gmail.com" class="nav-cta">Get in Touch</a>
 </nav>
 
 <div class="hero">
@@ -133,7 +133,7 @@ footer { border-top: 1px solid var(--border); padding: 28px 6%; max-width: 1100p
   </p>
   <div class="hero-actions">
     <a href="#projects" class="btn-primary">View Projects</a>
-    <a href="/cdn-cgi/l/email-protection#ee8587879d8687878a81999bae89838f8782c08d8183" class="btn-secondary">Get in Touch</a>
+    <a href="mailto:kiishiidowu@gmail.com" class="btn-secondary">Get in Touch</a>
   </div>
   <div class="credentials">
     <div class="cred-item">
@@ -380,8 +380,8 @@ footer { border-top: 1px solid var(--border); padding: 28px 6%; max-width: 1100p
       <p>I am actively seeking remote Project Manager roles with international employers. If you are hiring or would like to connect, I would love to hear from you.</p>
     </div>
     <div class="contact-links reveal">
-      <a href="/cdn-cgi/l/email-protection#cba0a2a2b8a3a2a2afa4bcbe8baca6aaa2a7e5a8a4a6" class="contact-link">
-        <div><span class="contact-link-label">Email</span><span class="__cf_email__" data-cfemail="701b191903181919141f070530171d11191c5e131f1d">[email&#160;protected]</span></div>
+      <a href="mailto:kiishiidowu@gmail.com" class="contact-link">
+        <div><span class="contact-link-label">Email</span>kiishiidowu@gmail.com</div>
       </a>
       <a href="https://www.linkedin.com/in/moyinoluwaidowu/" target="_blank" class="contact-link">
         <div><span class="contact-link-label">LinkedIn</span>linkedin.com/in/moyinoluwaidowu</div>
@@ -398,10 +398,18 @@ footer { border-top: 1px solid var(--border); padding: 28px 6%; max-width: 1100p
   <span class="footer-status">Open to Remote Roles</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
     const total = document.body.scrollHeight - window.innerHeight;
     document.getElementById('progress').style.width = (scrolled / total * 100) + '%';
   });
-  const observer = new
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
