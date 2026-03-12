@@ -1,589 +1,294 @@
 <!DOCTYPE html>
-<html lang="en" style=" background:#111816;">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="color-scheme" content="dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Enterprise Platform Migration · Case Study · Moyinoluwa Kemi Idowu</title>
+<meta name="theme-color" content="#0E1410">
+<title>Enterprise Platform Migration · Interview Brief · Moyinoluwa Kemi Idowu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  
-  --ink:        #F0EDE6;
-  --navy:       #1E3A5F;
-  --navy-mid:   #2A5080;
-  --navy-lite:  #E8EEF5;
-  --sand:       #161E1C;
-  --sand-dark:  #1E2A26;
-  --warm-grey:  #7A8A84;
-  --rule:       #2A3530;
-  --white:      #111816;
-  --accent:     #B85C38;
-  --ff-serif:   'Cormorant Garamond', Georgia, serif;
-  --ff-sans:    'Outfit', system-ui, sans-serif;
-  --ff-mono:    'DM Mono', monospace;
-}
-
 html { scroll-behavior: smooth; }
-body {
-  font-family: var(--ff-sans);
-  background: #111816 !important;
-  color: #F0EDE6 !important;
-  font-weight: 300;
-  line-height: 1.6;
-  
+:root {
+  --bg: #0E1410; --surface: #141A16; --surface2: #1C2420;
+  --border: #2A3530; --violet: #7B6FD4; --violet-dim: #4A4490;
+  --violet-glow: rgba(123,111,212,0.12); --cream: #E8E4DC;
+  --muted: #7A9090; --text: #C8C4BC; --teal: #4AADA8; --accent: #C4905A;
 }
-
-@media (prefers-color-scheme: dark) {
-  html, body { background: #111816 !important; color: #F0EDE6 !important; }
-  * {  }
-}
-
-#progress {
-  position: fixed; top: 0; left: 0; height: 3px;
-  background: #4A7AB8; width: 0%; z-index: 999;
-  transition: width 0.1s linear;
-}
-
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 6%;
-  background: rgba(17,24,22,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid #2A3530;
-}
-.nav-logo {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #4A7AB8;
-  text-decoration: none;
-}
-.nav-tag {
-  font-family: var(--ff-mono);
-  font-size: 10px;
-  color: #7A8A84;
-  letter-spacing: 0.12em;
-  border: 1px solid #2A3530;
-  padding: 4px 12px;
-  border-radius: 2px;
-}
-
-/* ── HERO ─────────────────────────────────────────────────────────────────── */
-.hero {
-  padding: 130px 6% 70px;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 60px;
-  align-items: end;
-}
-.hero-eyebrow {
-  font-family: var(--ff-mono);
-  font-size: 10px;
-  color: #4A7AB8;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 14px;
-}
-.hero-eyebrow::before {
-  content: ''; display: inline-block;
-  width: 28px; height: 1px; background: #4A7AB8;
-}
-.hero h1 {
-  font-family: var(--ff-serif);
-  font-size: clamp(36px, 5vw, 58px);
-  font-weight: 300;
-  line-height: 1.1;
-  color: #F0EDE6;
-  margin-bottom: 10px;
-}
-.hero h1 em { font-style: italic; color: #4A7AB8; }
-.hero-sub {
-  font-family: var(--ff-serif);
-  font-size: 16px;
-  font-style: italic;
-  color: #7A8A84;
-  margin-bottom: 6px;
-}
-.hero-tagline {
-  font-family: var(--ff-mono);
-  font-size: 10px;
-  color: #7A8A84;
-  letter-spacing: 0.08em;
-  margin-top: 8px;
-}
-.hero-meta {
-  background: #4A7AB8;
-  color: #111816;
-  padding: 28px 24px;
-  border-radius: 3px;
-}
-.meta-item { margin-bottom: 16px; }
-.meta-item:last-child { margin-bottom: 0; }
-.meta-label {
-  font-family: var(--ff-mono);
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.6;
-  margin-bottom: 3px;
-}
-.meta-value { font-size: 13px; font-weight: 400; line-height: 1.4; }
-
-/* ── STATS BAND ───────────────────────────────────────────────────────────── */
-.stats-band {
-  background: #161E1C;
-  border-top: 1px solid #2A3530;
-  border-bottom: 1px solid #2A3530;
-  padding: 40px 6%;
-}
-.stats-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(4, 1fr);
-}
-.stat { text-align: center; padding: 0 20px; border-right: 1px solid #2A3530; }
-.stat:last-child { border-right: none; }
-.stat-num {
-  font-family: var(--ff-serif);
-  font-size: 46px; font-weight: 600;
-  color: #4A7AB8; line-height: 1; margin-bottom: 6px;
-}
-.stat-lbl {
-  font-family: var(--ff-mono);
-  font-size: 9.5px; color: #7A8A84;
-  letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.4;
-}
-
-/* ── MAIN LAYOUT ──────────────────────────────────────────────────────────── */
-.content-wrap {
-  max-width: 1100px; margin: 0 auto;
-  padding: 80px 6%;
-  display: grid;
-  grid-template-columns: 660px 1fr;
-  gap: 80px;
-  align-items: start;
-}
-.sidebar { position: sticky; top: 80px; }
-.sidebar-section { margin-bottom: 36px; }
-.sidebar-title {
-  font-family: var(--ff-mono);
-  font-size: 9px; color: #7A8A84;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  margin-bottom: 12px; padding-bottom: 8px;
-  border-bottom: 1px solid #2A3530;
-}
-.sidebar-nav a {
-  display: block; font-size: 12.5px;
-  color: #7A8A84; text-decoration: none;
-  padding: 5px 0 5px 10px;
-  border-left: 2px solid transparent;
-  transition: all 0.2s; font-weight: 400;
-}
-.sidebar-nav a:hover, .sidebar-nav a.active {
-  color: #4A7AB8; border-left-color: #4A7AB8;
-}
-.tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag {
-  font-family: var(--ff-mono); font-size: 9.5px;
-  background: #181E28; color: #4A7AB8;
-  padding: 4px 10px; border-radius: 2px;
-  border: 1px solid #252E42;
-}
-
-/* ── ARTICLE ──────────────────────────────────────────────────────────────── */
-.article section { margin-bottom: 60px; }
-.section-header {
-  display: flex; align-items: center; gap: 16px;
-  margin-bottom: 22px; padding-bottom: 14px;
-  border-bottom: 1px solid #2A3530;
-}
-.section-num { font-family: var(--ff-mono); font-size: 10px; color: #4A7AB8; letter-spacing: 0.14em; }
-.section-title { font-family: var(--ff-serif); font-size: 22px; color: #F0EDE6; font-weight: 600; }
-
-.article p { font-size: 15px; color: #9AADA8; margin-bottom: 14px; line-height: 1.78; }
-
-.subsection { margin: 24px 0; }
-.subsection-title {
-  font-size: 12px; font-weight: 500; color: #4A7AB8;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  margin-bottom: 10px; font-family: var(--ff-sans);
-}
-.bullet-list { list-style: none; margin-bottom: 14px; }
-.bullet-list li {
-  font-size: 14px; color: #9AADA8;
-  padding: 6px 0 6px 20px; position: relative;
-  line-height: 1.6; border-bottom: 1px solid #1E2A26;
-}
-.bullet-list li:last-child { border-bottom: none; }
-.bullet-list li::before {
-  content: '→'; position: absolute; left: 0;
-  color: #4A7AB8; font-size: 12px; top: 8px;
-}
-.bullet-list li strong { color: #F0EDE6; font-weight: 500; }
-
-/* ── CONTRIBUTION BLOCKS ──────────────────────────────────────────────────── */
-.contribution {
-  background: #111816; border: 1px solid #2A3530;
-  border-left: 3px solid #4A7AB8; border-radius: 0 3px 3px 0;
-  padding: 20px 22px; margin-bottom: 14px;
-}
-.contribution h3 {
-  font-family: var(--ff-serif); font-size: 16px;
-  color: #F0EDE6; margin-bottom: 8px; font-weight: 600;
-}
-.contribution p { font-size: 13.5px; margin: 0; }
-
-/* ── SKILLS TABLE ─────────────────────────────────────────────────────────── */
-.skills-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
-.skills-table th {
-  background: #4A7AB8; color: #111816;
-  font-family: var(--ff-mono); font-size: 9.5px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 10px 14px; text-align: left; font-weight: 500;
-}
-.skills-table td {
-  padding: 10px 14px; border-bottom: 1px solid #2A3530;
-  color: #9AADA8; vertical-align: top; line-height: 1.55;
-}
-.skills-table tr:nth-child(even) td { background: #1A2420; }
-.skills-table td:first-child {
-  font-weight: 500; color: #4A7AB8; font-size: 12px;
-  white-space: nowrap; width: 175px;
-}
-
-/* ── PULLQUOTE ────────────────────────────────────────────────────────────── */
-.pullquote {
-  border-left: 3px solid #C4784A;
-  padding: 16px 20px; margin: 24px 0; background: #1E1814;
-}
-.pullquote p {
-  font-family: var(--ff-serif); font-size: 16px;
-  font-style: italic; color: #F0EDE6; line-height: 1.65; margin: 0;
-}
-
-/* ── TOOLS GRID ───────────────────────────────────────────────────────────── */
-.tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
-.tool-item {
-  background: #111816; border: 1px solid #2A3530;
-  padding: 10px 14px; border-radius: 3px;
-  font-size: 13px; color: #9AADA8; line-height: 1.5;
-}
-.tool-item strong {
-  display: block; color: #F0EDE6; font-size: 11.5px;
-  font-weight: 500; margin-bottom: 2px; font-family: var(--ff-mono);
-}
-
-/* ── RISK TABLE ───────────────────────────────────────────────────────────── */
-.risk-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 8px; }
-.risk-table th {
-  background: #1E2A26; color: #F0EDE6;
-  font-family: var(--ff-mono); font-size: 9px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 8px 12px; text-align: left;
-}
-.risk-table td { padding: 9px 12px; border-bottom: 1px solid #2A3530; color: #9AADA8; vertical-align: top; line-height: 1.5; }
-.risk-table tr:nth-child(even) td { background: #1A2420; }
-.badge {
-  display: inline-block; font-family: var(--ff-mono);
-  font-size: 8.5px; padding: 3px 8px; border-radius: 2px;
-  letter-spacing: 0.06em; text-transform: uppercase;
-}
-.badge-high { background: #2A1818; color: #A03030; border: 1px solid #E8C0C0; }
-.badge-med  { background: #251E14; color: #8A5020; border: 1px solid #E8D4B8; }
-.badge-low  { background: #181E28; color: #4A7AB8; border: 1px solid #252E42; }
-
-footer {
-  background: #F0EDE6; color: rgba(255,255,255,0.4);
-  text-align: center; padding: 28px 6%;
-  font-family: var(--ff-mono); font-size: 9.5px; letter-spacing: 0.08em;
-}
-footer a { color: #5A8AC8; text-decoration: none; }
-
-.fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.fade-in.visible { opacity: 1; transform: none; }
-
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; padding-top: 100px; }
-  .hero-meta { display: none; }
-  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 0; }
-  .stat { border-bottom: 1px solid #2A3530; padding: 20px; }
-  .stat:nth-child(2), .stat:last-child { border-right: none; }
-  .content-wrap { grid-template-columns: 1fr; }
-  .sidebar { position: static; }
-  .sidebar-nav { display: none; }
-  .tools-grid, .risk-table { grid-template-columns: 1fr; }
+body { font-family: 'Outfit', system-ui, sans-serif; background: var(--bg); color: var(--cream); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--violet-dim); border-radius: 2px; }
+#progress { position: fixed; top: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--violet), var(--accent)); width: 0%; z-index: 999; transition: width 0.1s linear; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 6%; background: rgba(14,20,16,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); text-decoration: none; }
+.nav-back { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+.nav-back:hover { color: var(--teal); }
+.case-hero { padding: 120px 6% 80px; max-width: 900px; margin: 0 auto; }
+.hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--violet); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--violet); }
+.case-hero h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(36px, 5vw, 64px); font-weight: 300; line-height: 1.1; margin-bottom: 16px; }
+.case-hero h1 em { font-style: italic; color: var(--violet); }
+.case-hero .subtitle { font-size: 16px; color: var(--text); margin-bottom: 48px; max-width: 620px; line-height: 1.7; }
+.meta-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+.meta-item { background: var(--surface); padding: 20px 24px; }
+.meta-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 6px; }
+.meta-value { font-size: 14px; color: var(--cream); font-weight: 400; }
+.context-banner { background: var(--surface); border: 1px solid var(--violet-dim); border-left: 3px solid var(--violet); border-radius: 3px; padding: 18px 24px; margin-bottom: 72px; display: flex; gap: 14px; align-items: flex-start; }
+.context-banner p { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.7; letter-spacing: 0.04em; }
+.context-banner strong { color: var(--violet); }
+.case-body { max-width: 900px; margin: 0 auto; padding: 0 6% 100px; }
+.case-section { margin-bottom: 72px; }
+.section-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--violet); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.section-label::before { content: ''; width: 20px; height: 1px; background: var(--violet); }
+.case-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 300; margin-bottom: 20px; line-height: 1.2; }
+.case-section h2 em { font-style: italic; color: var(--violet); }
+.prose { font-size: 15px; color: var(--text); line-height: 1.85; }
+.prose p { margin-bottom: 18px; }
+.prose strong { color: var(--cream); font-weight: 500; }
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 40px 0; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 24px 20px; text-align: center; }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 400; color: var(--violet); line-height: 1; display: block; margin-bottom: 6px; }
+.stat-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+.info-card { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 24px; }
+.info-card h4 { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--violet); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 14px; }
+.info-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.info-card li { font-size: 13px; color: var(--text); display: flex; gap: 10px; line-height: 1.6; }
+.info-card li::before { content: '▸'; color: var(--violet); font-size: 10px; flex-shrink: 0; margin-top: 3px; }
+.risk-table { width: 100%; border-collapse: collapse; margin: 32px 0; }
+.risk-table th { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--violet); letter-spacing: 0.16em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+.risk-table td { padding: 14px 16px; font-size: 13px; color: var(--text); border-bottom: 1px solid var(--surface2); line-height: 1.5; vertical-align: top; }
+.risk-table tr:last-child td { border-bottom: none; }
+.badge { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 2px; font-weight: 500; }
+.badge.high { background: rgba(200,60,60,0.15); color: #E07070; border: 1px solid rgba(200,60,60,0.3); }
+.badge.medium { background: rgba(196,144,90,0.15); color: var(--accent); border: 1px solid rgba(196,144,90,0.3); }
+.badge.low { background: var(--violet-glow); color: var(--violet); border: 1px solid rgba(123,111,212,0.3); }
+.phase-steps { display: flex; flex-direction: column; gap: 0; margin: 32px 0; }
+.phase { display: grid; grid-template-columns: 120px 1px 1fr; gap: 0 28px; padding-bottom: 36px; }
+.phase:last-child { padding-bottom: 0; }
+.phase-date { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--violet); letter-spacing: 0.1em; text-align: right; padding-top: 4px; line-height: 1.4; }
+.phase-line { background: var(--border); position: relative; }
+.phase-line::before { content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; background: var(--violet); border-radius: 50%; border: 2px solid var(--bg); }
+.phase-content h4 { font-size: 15px; font-weight: 500; color: var(--cream); margin-bottom: 6px; }
+.phase-content p { font-size: 13px; color: var(--text); line-height: 1.7; }
+.divider { height: 1px; background: var(--border); margin: 56px 0; }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.case-nav { display: flex; justify-content: space-between; align-items: center; padding: 40px 6%; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+.case-nav a { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+.case-nav a:hover { color: var(--teal); }
+@media (max-width: 700px) {
+  .meta-bar { grid-template-columns: 1fr 1fr; }
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+  .phase { grid-template-columns: 80px 1px 1fr; }
 }
 </style>
 </head>
 <body>
 <div id="progress"></div>
-
 <nav>
-  <a href="index.html" class="nav-logo">Moyinoluwa Kemi Idowu</a>
-  <span class="nav-tag">Case Study</span>
+  <a href="pm_index.html" class="nav-logo">MKI · Product</a>
+  <a href="pm_index.html" class="nav-back">← Back to Portfolio</a>
 </nav>
 
-<div class="hero">
-  <div>
-    <div class="hero-eyebrow">Project Management · Planning Exercise · Enterprise Scenario</div>
-    <h1>Enterprise<br><em>Platform Migration</em></h1>
-    <p class="hero-sub">Seamless Migration of 50 Enterprise Clients</p>
-    <p class="hero-tagline">PM Portfolio Documentation · Enterprise Migration Scenario · Anonymised</p>
+<div class="case-hero">
+  <div class="hero-eyebrow">SaaS · Enterprise Migration · Interview Brief</div>
+  <h1>Enterprise <em>Platform Migration</em></h1>
+  <p class="subtitle">
+    Full project planning documentation for a realistic enterprise SaaS scenario: stakeholder
+    analysis, risk register, phased delivery plan, communication strategy, and budget framework
+    for migrating 50 enterprise clients from a legacy system to a modern platform.
+  </p>
+  <div class="meta-bar">
+    <div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">Interview Brief (Live)</div></div>
+    <div class="meta-item"><div class="meta-label">Context</div><div class="meta-value">Hire Confirmed</div></div>
+    <div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">Confidential (name changed)</div></div>
+    <div class="meta-item"><div class="meta-label">Domain</div><div class="meta-value">SaaS / Enterprise Tech</div></div>
   </div>
-  <div class="hero-meta">
-    <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Project Planning Exercise</div></div>
-    <div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">PM Portfolio Documentation</div></div>
-    <div class="meta-item"><div class="meta-label">Timeline</div><div class="meta-value">12 weeks (delivered in 11)</div></div>
-    <div class="meta-item"><div class="meta-label">Budget</div><div class="meta-value">$250K (8% under)</div></div>
-    <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">15 cross-functional members</div></div>
-    <div class="meta-item"><div class="meta-label">Revenue Protected</div><div class="meta-value">$450K in client contracts</div></div>
-  </div>
-</div>
-
-<div class="stats-band">
-  <div class="stats-inner">
-    <div class="stat fade-in"><div class="stat-num">1wk</div><div class="stat-lbl">Planned<br>Buffer</div></div>
-    <div class="stat fade-in" style="transition-delay:.1s"><div class="stat-num">92%</div><div class="stat-lbl">Target Client<br>Satisfaction</div></div>
-    <div class="stat fade-in" style="transition-delay:.2s"><div class="stat-num">8%</div><div class="stat-lbl">Projected<br>Under Budget</div></div>
-    <div class="stat fade-in" style="transition-delay:.3s"><div class="stat-num">0</div><div class="stat-lbl">Critical<br>Incidents</div></div>
+  <div class="context-banner">
+    <p><strong>Note:</strong> This is real PM work produced as part of an interview process that resulted in a successful hire. Names and identifying details have been changed for confidentiality. It demonstrates full-cycle PM documentation — stakeholder maps, risk registers, phased timelines, and communication frameworks — applied to a live brief.</p>
   </div>
 </div>
 
-<div class="content-wrap">
-  <article class="article">
+<div class="case-body">
 
-    <section id="overview" class="fade-in">
-      <div class="section-header">
-        <span class="section-num">01</span>
-        <h2 class="section-title">Project Overview</h2>
-      </div>
-      <p>This project planning exercise was developed as a comprehensive PM portfolio piece, demonstrating full project documentation for a realistic enterprise migration scenario. The scenario: TechCorp has acquired a modern platform and must migrate 50 enterprise clients from a legacy system within 90 days, with zero tolerance for data loss and $450K in active client contracts at stake.</p>
-      <p>The exercise covers the complete documentation a project manager would produce at initiation and planning stage: stakeholder analysis, risk register, phased delivery plan, communication strategy, and budget framework. A cross-functional team of 15 across engineering, client success, QA, and content is assumed.</p>
-      <p>The projected outcomes modelled in the plan: delivery in 11 weeks against a 12-week schedule, 8% under the $250K budget, 92% client satisfaction, and zero critical incidents, based on the risk mitigations and phased approach designed.</p>
-    </section>
-
-    <section id="challenge" class="fade-in">
-      <div class="section-header">
-        <span class="section-num">02</span>
-        <h2 class="section-title">The Challenge</h2>
-      </div>
-      <p>The scenario was designed around four intersecting constraints that a real PM would need to navigate simultaneously.</p>
-      <ul class="bullet-list">
-        <li><strong>Client diversity:</strong> 50 enterprise clients with widely varying technical capabilities, content volumes, and integration requirements. A one-size approach would not work.</li>
-        <li><strong>SEO preservation:</strong> Each client had organic search rankings built over years. Any broken redirects or missed metadata would immediately damage their visibility and trust in TechCorp.</li>
-        <li><strong>Zero downtime requirement:</strong> Clients could not experience service interruptions. Migrations had to be scheduled, tested, and cut over without gaps in live service.</li>
-        <li><strong>Compressed timeline:</strong> 90 days to migrate 50 clients while maintaining business as usual for the client success and engineering teams, who had other responsibilities running concurrently.</li>
-      </ul>
-    </section>
-
-    <section id="approach" class="fade-in">
-      <div class="section-header">
-        <span class="section-num">03</span>
-        <h2 class="section-title">My Approach</h2>
-      </div>
-
-      <div class="subsection">
-        <div class="subsection-title">Phased Rollout with Client Tiering</div>
-        <p>Rather than migrating clients in a single wave, I designed a three-phase rollout based on client complexity and risk level. Lower-complexity clients migrated first, providing real-world validation before tackling the highest-value accounts. This sequencing protected the most critical relationships and gave the team a learning curve without exposing TechCorp to maximum risk from day one.</p>
-      </div>
-
-      <div class="subsection">
-        <div class="subsection-title">Pre-Migration Audit and Documentation</div>
-        <p>Before any migration began, I led a full audit of all 50 client environments: content volumes, active integrations, redirect requirements, and custom configurations. This produced a per-client migration brief that the engineering team used as a single source of truth, eliminating guesswork and reducing back-and-forth during execution.</p>
-      </div>
-
-      <div class="subsection">
-        <div class="subsection-title">Structured Risk Register and Contingency Planning</div>
-        <p>I built a risk register covering technical, timeline, and client-facing risks, each with an assigned owner, likelihood rating, and mitigation plan. A 15% budget contingency was built in from the start. Weekly risk reviews kept the register live throughout the project rather than treating it as a one-time document.</p>
-      </div>
-
-      <div class="subsection">
-        <div class="subsection-title">Client Communication Cadence</div>
-        <p>Each client received advance notice of their migration window, a plain-language explanation of what to expect, and a named point of contact from the client success team. Post-migration, a structured follow-up was sent within 48 hours to confirm satisfaction and capture any outstanding issues before they escalated.</p>
-      </div>
-    </section>
-
-    <section id="risks" class="fade-in">
-      <div class="section-header">
-        <span class="section-num">04</span>
-        <h2 class="section-title">Risk Management</h2>
-      </div>
-      <p>The risk register tracked six primary risks throughout the project lifecycle.</p>
-      <table class="risk-table">
-        <thead>
-          <tr><th>Risk</th><th>Level</th><th>Mitigation</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Data loss during migration</td>
-            <td><span class="badge badge-high">High</span></td>
-            <td>Multiple backup protocols; full data validation before each cutover</td>
-          </tr>
-          <tr>
-            <td>Client downtime exceeding SLA</td>
-            <td><span class="badge badge-high">High</span></td>
-            <td>Migrations scheduled outside business hours; rollback procedure documented for every client</td>
-          </tr>
-          <tr>
-            <td>SEO ranking degradation</td>
-            <td><span class="badge badge-high">High</span></td>
-            <td>Comprehensive redirect mapping completed pre-migration; post-migration monitoring for 30 days</td>
-          </tr>
-          <tr>
-            <td>Timeline slippage</td>
-            <td><span class="badge badge-med">Medium</span></td>
-            <td>Phased rollout with buffer weeks built in; weekly velocity tracking against plan</td>
-          </tr>
-          <tr>
-            <td>Budget overrun</td>
-            <td><span class="badge badge-med">Medium</span></td>
-            <td>15% contingency reserve; weekly budget review against actuals</td>
-          </tr>
-          <tr>
-            <td>Client resistance or delayed approvals</td>
-            <td><span class="badge badge-low">Low</span></td>
-            <td>Early client communication; escalation path defined with client success lead</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="results" class="fade-in">
-      <div class="section-header">
-        <span class="section-num">05</span>
-        <h2 class="section-title">Projected Outcomes</h2>
-      </div>
-
-      <div class="contribution">
-        <h3>Planned for Early Delivery and Budget Efficiency</h3>
-        <p>The project plan models delivery in 11 weeks against a 12-week schedule, with a 15% contingency reserve built in from the start. The phased rollout design and pre-migration audit were specifically structured to protect the timeline against the most likely sources of delay.</p>
-      </div>
-      <div class="contribution">
-        <h3>Risk Mitigations Designed for Zero Incidents</h3>
-        <p>The risk register and contingency planning were built around the goal of zero client-facing incidents. Every high-rated risk has a documented mitigation, a rollback procedure, and an assigned owner, so the response is pre-decided rather than reactive when issues arise.</p>
-      </div>
-      <div class="contribution">
-        <h3>Communication Strategy Targeting 92% Satisfaction</h3>
-        <p>The client communication plan was designed with a 92% satisfaction target. Each client receives advance notice, a named contact, a plain-language migration guide, and a 48-hour post-migration follow-up. The strategy addresses the specific drivers of satisfaction identified in similar enterprise migrations.</p>
-      </div>
-      <div class="contribution">
-        <h3>$450K Revenue Risk Identified and Mitigated</h3>
-        <p>The planning documentation identifies $450K in active client contracts as the primary business risk driver. Contract penalty clauses informed the 90-day hard deadline, and the phased rollout was sequenced specifically to protect the highest-value accounts from early-phase execution risk.</p>
-      </div>
-    </section>
-
-    <section id="skills" class="fade-in">
-      <div class="section-header">
-        <span class="section-num">06</span>
-        <h2 class="section-title">PM Skills Demonstrated</h2>
-      </div>
-      <table class="skills-table">
-        <thead><tr><th>Competency</th><th>How It Showed Up</th></tr></thead>
-        <tbody>
-          <tr><td>Project Planning</td><td>Three-phase rollout plan with client tiering, sequenced milestones, and buffer weeks built into the schedule from day one</td></tr>
-          <tr><td>Risk Management</td><td>Live risk register with six tracked risks, assigned owners, and weekly review cadence throughout the project</td></tr>
-          <tr><td>Stakeholder Management</td><td>Coordinated across engineering, client success, QA, and content teams; managed external client communications for all 50 accounts</td></tr>
-          <tr><td>Budget Management</td><td>Tracked actuals against $250K budget weekly; 15% contingency absorbed two scope additions without timeline impact</td></tr>
-          <tr><td>Scope Management</td><td>Pre-migration audit produced per-client briefs that fixed scope clearly; change requests were evaluated against timeline and budget impact before acceptance</td></tr>
-          <tr><td>Quality Assurance</td><td>Structured post-migration validation checklist run for every client; issues resolved within 24 hours before client escalation</td></tr>
-          <tr><td>Client Communication</td><td>Advance notice, plain-language migration guides, named point of contact, and 48-hour post-migration follow-up for all 50 clients</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="tools" class="fade-in">
-      <div class="section-header">
-        <span class="section-num">07</span>
-        <h2 class="section-title">Tools &amp; Methods</h2>
-      </div>
-      <div class="tools-grid">
-        <div class="tool-item"><strong>Project Planning</strong>Gantt chart for phased rollout; milestone tracking against 90-day deadline</div>
-        <div class="tool-item"><strong>Risk Management</strong>Live risk register with owner, likelihood, impact, and mitigation per risk</div>
-        <div class="tool-item"><strong>Client Tracking</strong>Per-client migration status tracker; 50-row pipeline from audit to sign-off</div>
-        <div class="tool-item"><strong>Communication</strong>Templated client comms; internal weekly status reports to leadership</div>
-        <div class="tool-item"><strong>Budget Tracking</strong>Weekly actuals vs. budget; contingency drawdown log</div>
-        <div class="tool-item"><strong>QA</strong>Post-migration validation checklist; 30-day SEO monitoring per client</div>
-      </div>
-    </section>
-
-    <section id="reflections" class="fade-in">
-      <div class="section-header">
-        <span class="section-num">08</span>
-        <h2 class="section-title">Reflections &amp; Learnings</h2>
-      </div>
-      <div class="pullquote">
-        <p>"The pre-migration audit is the single highest-leverage investment in a project like this. Every hour spent documenting client environments upfront saves multiples of that time during execution."</p>
-      </div>
-      <p>The decision to tier clients by complexity and migrate in phases rather than attempting a simultaneous rollout is the most important structural choice in this plan. It gives the team a learning curve before touching the highest-risk accounts, and means that by the time the most complex clients are reached, the majority of execution problems have already been encountered and solved on lower-stakes migrations.</p>
-      <p>The communication cadence is time-consuming to set up but directly drives satisfaction. In enterprise migrations, clients who feel informed and have a clear point of contact rarely escalate. Building follow-up into the process rather than making it reactive is the difference between a minor issue and a contract conversation.</p>
-    </section>
-
-  </article>
-
-  <aside class="sidebar">
-    <div class="sidebar-section">
-      <div class="sidebar-title">On this page</div>
-      <nav class="sidebar-nav">
-        <a href="#overview">Project Overview</a>
-        <a href="#challenge">The Challenge</a>
-        <a href="#approach">My Approach</a>
-        <a href="#risks">Risk Management</a>
-        <a href="#results">Results</a>
-        <a href="#skills">Skills Demonstrated</a>
-        <a href="#tools">Tools</a>
-        <a href="#reflections">Reflections</a>
-      </nav>
+  <div class="case-section reveal">
+    <div class="section-label">The Scenario</div>
+    <h2>50 enterprise clients, 90 days, <em>zero tolerance for data loss</em></h2>
+    <div class="prose">
+      <p>TechCorp has acquired a modern SaaS platform and must migrate 50 enterprise clients from a legacy system within 90 days. The legacy system has become a liability: frequent downtime, limited content management, poor SEO performance, and mounting security vulnerabilities are putting client relationships at risk.</p>
+      <p>The planning challenge: design a migration approach that protects $450K in active client contracts, maintains zero data loss across all migrations, and keeps client downtime within SLA limits — while coordinating a cross-functional team of 15 across engineering, client success, QA, and content.</p>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-title">PM Competencies</div>
-      <div class="tag-cloud">
-        <span class="tag">Project Planning</span>
-        <span class="tag">Risk Management</span>
-        <span class="tag">Stakeholder Management</span>
-        <span class="tag">Budget Tracking</span>
-        <span class="tag">Scope Management</span>
-        <span class="tag">Client Communication</span>
-        <span class="tag">QA Coordination</span>
-        <span class="tag">Change Management</span>
+  </div>
+
+  <div class="stat-row reveal">
+    <div class="stat-card"><span class="stat-num">50</span><span class="stat-label">Enterprise Clients</span></div>
+    <div class="stat-card"><span class="stat-num">90</span><span class="stat-label">Day Window</span></div>
+    <div class="stat-card"><span class="stat-num">$450K</span><span class="stat-label">Contracts at Risk</span></div>
+    <div class="stat-card"><span class="stat-num">15</span><span class="stat-label">Team Members</span></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="case-section reveal">
+    <div class="section-label">Stakeholder Analysis</div>
+    <h2>Mapping everyone <em>with a stake in delivery</em></h2>
+    <div class="card-grid">
+      <div class="info-card">
+        <h4>Internal Stakeholders</h4>
+        <ul>
+          <li>Engineering: technical migration execution and data integrity</li>
+          <li>Client Success: primary client contacts throughout the migration</li>
+          <li>QA: pre and post-migration validation and sign-off</li>
+          <li>Content: redirects, SEO preservation, and content migration</li>
+          <li>Executive leadership: budget authority and escalation path</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>External Stakeholders</h4>
+        <ul>
+          <li>50 enterprise clients: end-recipients of migration, varying technical capacity</li>
+          <li>Named contacts per account: primary communication point per migration</li>
+          <li>Third-party integrations: client-side tools requiring reconnection post-migration</li>
+        </ul>
       </div>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-title">Sector</div>
-      <div class="tag-cloud">
-        <span class="tag">Enterprise Technology</span>
-        <span class="tag">Platform Migration</span>
-        <span class="tag">SaaS</span>
+    <div class="prose" style="margin-top:16px;">
+      <p><strong>Key insight:</strong> Enterprise clients have widely varying technical capacity. A single migration playbook would not work. The communication and support approach needed to be tiered by client complexity, not uniform across all accounts.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="case-section reveal">
+    <div class="section-label">Phased Delivery Plan</div>
+    <h2>Three phases across <em>11 weeks</em></h2>
+    <div class="prose"><p>The migration is designed as a phased rollout with one week of buffer against the 12-week deadline, allowing for controlled risk at each stage before committing the full client base.</p></div>
+    <div class="phase-steps">
+      <div class="phase">
+        <div class="phase-date">Weeks 1–3</div>
+        <div class="phase-line"></div>
+        <div class="phase-content">
+          <h4>Phase 1: Preparation and Pilot</h4>
+          <p>Audit all 50 client environments. Complete redirect mapping and SEO preservation planning. Select 5 lower-complexity clients for a controlled pilot migration. Full validation and feedback gathered before proceeding.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-date">Weeks 4–8</div>
+        <div class="phase-line"></div>
+        <div class="phase-content">
+          <h4>Phase 2: Scaled Migration</h4>
+          <p>Migrate remaining 45 clients in tiered batches by complexity. All migrations outside business hours. Each client receives advance notice, a plain-language briefing, and a named point of contact. 48-hour structured follow-up per client post-migration.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-date">Weeks 9–11</div>
+        <div class="phase-line"></div>
+        <div class="phase-content">
+          <h4>Phase 3: Validation and Stabilisation</h4>
+          <p>30-day post-migration monitoring for SEO, performance, and issue reports. Resolve outstanding client issues. Formal project close and retrospective. One week of buffer held against week 12.</p>
+        </div>
       </div>
     </div>
-  </aside>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="case-section reveal">
+    <div class="section-label">Risk Register</div>
+    <h2>Identifying and <em>mitigating before delivery begins</em></h2>
+    <table class="risk-table">
+      <thead>
+        <tr><th>Risk</th><th>Level</th><th>Mitigation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Data loss during migration</td><td><span class="badge high">High</span></td><td>Multiple backup protocols; full data validation before each cutover; rollback procedure per client</td></tr>
+        <tr><td>Client downtime exceeding SLA</td><td><span class="badge high">High</span></td><td>All migrations outside business hours; rollback activated if downtime threshold approached</td></tr>
+        <tr><td>SEO ranking degradation</td><td><span class="badge high">High</span></td><td>Comprehensive redirect mapping pre-migration; 30-day post-launch monitoring per client</td></tr>
+        <tr><td>Timeline slippage</td><td><span class="badge medium">Medium</span></td><td>Phased rollout with one week buffer; weekly velocity tracking against plan</td></tr>
+        <tr><td>Budget overrun</td><td><span class="badge medium">Medium</span></td><td>15% contingency reserve built in at planning; weekly budget vs actuals review</td></tr>
+        <tr><td>Client resistance or delayed sign-off</td><td><span class="badge low">Low</span></td><td>Early client communication; named contacts per account; escalation path defined with client success</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="case-section reveal">
+    <div class="section-label">Planning Targets</div>
+    <h2>What the plan was <em>designed to achieve</em></h2>
+    <div class="prose"><p>These targets were built into the planning documentation as success criteria for the migration programme. They represent the intended outcomes the plan was structured to deliver, not post-delivery results.</p></div>
+    <div class="card-grid">
+      <div class="info-card">
+        <h4>Delivery Targets</h4>
+        <ul>
+          <li>11-week delivery against a 12-week schedule</li>
+          <li>One week of buffer maintained throughout</li>
+          <li>Zero critical incidents as the target threshold</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>Budget Targets</h4>
+        <ul>
+          <li>8% headroom below the $250K ceiling</li>
+          <li>15% contingency reserve built in and preserved</li>
+          <li>No scope additions without formal change control</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>Client Success Targets</h4>
+        <ul>
+          <li>92% client satisfaction as the defined success threshold</li>
+          <li>Zero data loss across all 50 migrations</li>
+          <li>All downtime within agreed SLA limits</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>PM Artefacts Produced</h4>
+        <ul>
+          <li>Stakeholder analysis and RACI</li>
+          <li>Risk register with likelihood, impact, mitigation</li>
+          <li>Phased delivery plan with rollback provisions</li>
+          <li>Budget framework with contingency logic</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="case-section reveal">
+    <div class="section-label">Reflection</div>
+    <h2>What this brief <em>demonstrates</em></h2>
+    <div class="prose">
+      <p>The value of working to a live brief under real pressure is that the thinking cannot be approximate. Building a risk register before you know what will go wrong, writing a communication plan before you have met the clients, designing a phased timeline with deliberate buffer before delivery pressures compress it — these are the habits that distinguish proactive project management from reactive coordination.</p>
+      <p>The stakeholder tiering approach came from working through the brief carefully rather than defaulting to a generic structure. That specificity in planning is what the work was designed to surface and what a hiring team is looking for when they set a brief like this.</p>
+    </div>
+  </div>
+
 </div>
 
-<footer>
-  <p>Moyinoluwa Kemi Idowu &nbsp;·&nbsp; <a href="mailto:kiishiidowu@gmail.com">kiishiidowu@gmail.com</a> &nbsp;·&nbsp; <a href="index.html">Back to Portfolio</a></p>
-</footer>
+<div class="case-nav">
+  <a href="PAID_case_study_web.html">← PAID Programme</a>
+  <a href="bridgestone_case_study.html">Bridgestone Healthcare →</a>
+</div>
 
 <script>
-window.addEventListener('scroll', () => {
-  document.getElementById('progress').style.width =
-    (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
-});
-const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08 });
-document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-const sections = document.querySelectorAll('section[id]');
-const links = document.querySelectorAll('.sidebar-nav a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
-  links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
-});
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.body.scrollHeight - window.innerHeight;
+    document.getElementById('progress').style.width = (scrolled / total * 100) + '%';
+  });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
